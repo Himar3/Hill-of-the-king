@@ -1,0 +1,22 @@
+#body {
+    position: absolute;
+
+}
+
+#hud {
+    top: 20%;
+    left: 50%;
+    height: 800px;
+    width: 750px;
+    position: relative;
+    border: 2px solid rgb(255, 0, 0) 
+}
+
+#canvas {
+    left: 50%;
+    bottom: 10%;
+    height: 700px;
+    width: 700px;
+    position: relative;
+    border: 2px solid black
+}
