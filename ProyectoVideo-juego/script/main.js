@@ -61,19 +61,20 @@ function KingGame() {
     this.mapKeys = function() {
         document.addEventListener('keydown', function(e) {
             console.log(e.key)
-            if (e.key === 'ArrowDown') {
+            if (e.key === 'ArrowDown' || e.key === 's') {
                 self.hero.moveDown()
+
             }
-            if (e.key === 'ArrowUp') {
+            if (e.key === 'ArrowUp' || e.key === 'w') {                
                 self.hero.moveUp()
             }
-            if (e.key === 'ArrowLeft') {
+            if (e.key === 'ArrowLeft' || e.key === 'a') {                
                 self.hero.moveLeft()
             }
-            if (e.key === 'ArrowRight') {
+            if (e.key === 'ArrowRight' || e.key === 'd') {
                 self.hero.moveRight()
             }
-            if (e.key === ' ') {
+            if (e.key === ' ' || e.key === '+') {
                 self.hero.attack()
             }
         })
