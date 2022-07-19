@@ -1,4 +1,4 @@
-let canvas = document.getElementById("canvas")
+/*let canvas = document.getElementById("canvas")
 let score = document.getElementById("score")
 let life = document.getElementById("life")
 let direction = 'down'
@@ -43,5 +43,45 @@ function score() {
 }
 
 HeroGen()
+*/
 
+function KingGame() {
+    self = this
+    this.canvas = document.getElementById("canvas")
+    this.hero = new Hero()
+    
 
+    
+
+    this.startGame = function() {
+        this.hero.generateHero(this.canvas) 
+        
+    }
+
+    this.mapKeys = function() {
+        document.addEventListener('keydown', function(e) {
+            console.log(e.key)
+            if (e.key === 'ArrowDown') {
+                self.hero.moveDown()
+            }
+            if (e.key === 'ArrowUp') {
+                self.hero.moveUp()
+            }
+            if (e.key === 'ArrowLeft') {
+                self.hero.moveLeft()
+            }
+            if (e.key === 'ArrowRight') {
+                self.hero.moveRight()
+            }
+            if (e.key === ' ') {
+                self.hero.attack()
+            }
+        })
+        
+    
+    }
+}
+
+let game = new KingGame()
+game.startGame()
+game.mapKeys()
