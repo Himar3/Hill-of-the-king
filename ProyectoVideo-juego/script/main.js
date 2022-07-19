@@ -2,7 +2,7 @@ let canvas = document.getElementById("canvas")
 let score = document.getElementById("score")
 let life = document.getElementById("life")
 let direction = 'down'
-
+ 
 function GameStart() {
     this.score = 0,
     this.life = 100,
