@@ -42,7 +42,7 @@ function Hero() {
     }
 
     this.moveRight = function() {
-        if (this.posX < 460) { 
+        if (this.posX < 460) {
             this.direction = 'right'           
             this.sprite.style.backgroundImage = "url(assets/images/hero_right.png)"
             this.posX += 10
@@ -57,10 +57,10 @@ function Hero() {
             this.sprite.style.backgroundImage = "url(assets/images/hero_attack_***.png)"
         }
         if(this.direction === 'up') {
-            if (this.posY > 60) {
+            if (this.posX > 60 && this.posY > 60) {
                 this.sprite.style.left = this.posX - 30 + 'px'
                 this.sprite.style.top = this.posY - 30 + 'px'
-            }
+                }
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
             this.sprite.style.backgroundImage = "url(assets/images/hero_attack_***.png)"
@@ -79,6 +79,18 @@ function Hero() {
             this.sprite.style.height = '70px'
             this.sprite.style.backgroundImage = "url(assets/images/char_attack_right_anim.gif)"
         }
+
+
+
+        if (this.posX > 60 && this.posY > 60) {
+            this.sprite.style.left = this.posX + 30 + 'px'
+            this.sprite.style.top = this.posY + 30 + 'px'
+            }
+        
+        this.sprite.style.width = '32px'
+        this.sprite.style.height = '40px' 
+
+        console.log (this.strength)
 
     }
 }
