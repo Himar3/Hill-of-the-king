@@ -54,8 +54,7 @@ function KingGame() {
 
     this.startGame = function() {
         this.hero.generateHero(this.canvas) 
-        this.enemy.generateEnemy(this.canvas)
-        
+        this.enemy.generateEnemy(this.canvas)     
     }
 
     this.mapKeys = function() {

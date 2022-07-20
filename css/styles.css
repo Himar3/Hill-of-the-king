@@ -65,7 +65,7 @@
     background-repeat: no-repeat;
     width: 32px;
     height: 40px;
-    border: 2px solid red;
+    border: 2px solid rgb(9, 255, 0);
     background-image: url(../assets/images/hero_mov/hero_down.png);
 }
 
