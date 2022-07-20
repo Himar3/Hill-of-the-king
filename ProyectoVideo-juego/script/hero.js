@@ -57,14 +57,22 @@ function Hero() {
             this.sprite.style.backgroundImage = "url(assets/images/hero_attack_***.png)"
         }
         if(this.direction === 'up') {
+            if (this.posY > 60) {
+                this.sprite.style.left = this.posX - 30 + 'px'
+                this.sprite.style.top = this.posY - 30 + 'px'
+            }
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
             this.sprite.style.backgroundImage = "url(assets/images/hero_attack_***.png)"
-        }
+            }
         if(this.direction === 'left') {
+            if (this.posX > 60 && this.posY > 60) {
+                this.sprite.style.left = this.posX - 30 + 'px'
+                this.sprite.style.top = this.posY - 30 + 'px'
+            }
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/char_attack_left_anim.gif)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_atk_left.gif)"
         }
         if(this.direction === 'right') {
             this.sprite.style.width = '70px'

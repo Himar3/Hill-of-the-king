@@ -52,7 +52,7 @@
     left: 200;
     width: 32px;
     height: 40px;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     background-image: url(../assets/images/hero_down.png);
 }
 
