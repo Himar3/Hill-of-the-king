@@ -1,8 +1,9 @@
 function Hero() {
     this.sprite
     this.posX = 30 
-    this.posY = 30
+    this.posY = 220
     this.strength = 25
+    this.life = 100
     this.direction = 'down'
 
     this.generateHero = function(canvas) {
@@ -15,28 +16,28 @@ function Hero() {
     }
 
     this.moveDown = function() {
-        if (this.posY < 460) {
+        if (this.posY < 455) {
             this.direction = 'down'            
-            this.sprite.style.backgroundImage = "url(assets/images/hero_down.png)"
-            this.posY += 10
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_down.png)"
+            this.posY += 7
             this.sprite.style.top = this.posY + 'px'
         }
     }
     
     this.moveUp = function() {
-        if (this.posY > 0) {
+        if (this.posY > 2) {
             this.direction = 'up'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_up.png)"
-            this.posY -= 10
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_up.png)"
+            this.posY -= 7
             this.sprite.style.top = this.posY + 'px'
         }
     }
 
     this.moveLeft = function() {
-        if (this.posX > 0) {
+        if (this.posX > 1) {
             this.direction = 'left'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_left.png)"
-            this.posX -= 10
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_left.png)"
+            this.posX -= 7
             this.sprite.style.left = this.posX + 'px'
         }
     }
@@ -44,8 +45,8 @@ function Hero() {
     this.moveRight = function() {
         if (this.posX < 460) {
             this.direction = 'right'           
-            this.sprite.style.backgroundImage = "url(assets/images/hero_right.png)"
-            this.posX += 10
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_right.png)"
+            this.posX += 7
             this.sprite.style.left = this.posX + 'px'
         }
     }

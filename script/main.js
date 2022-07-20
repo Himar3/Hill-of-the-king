@@ -49,12 +49,12 @@ function KingGame() {
     self = this
     this.canvas = document.getElementById("canvas")
     this.hero = new Hero()
-    
-
+    this.enemy = new Enemy()
     
 
     this.startGame = function() {
         this.hero.generateHero(this.canvas) 
+        this.enemy.generateEnemy(this.canvas)
         
     }
 
@@ -63,7 +63,6 @@ function KingGame() {
             console.log(e.key)
             if (e.key === 'ArrowDown' || e.key === 's') {
                 self.hero.moveDown()
-
             }
             if (e.key === 'ArrowUp' || e.key === 'w') {                
                 self.hero.moveUp()
@@ -77,9 +76,7 @@ function KingGame() {
             if (e.key === ' ' || e.key === '+') {
                 self.hero.attack()
             }
-        })
-        
-    
+        })    
     }
 }
 
