@@ -17,21 +17,28 @@ function Enemy() {
         this.sprite = document.getElementById('enemy')
     }
     
-    this.deadOrNot = function() {
+    this.isDead = function() {
         this.life >= 1 ? this.die = false : this.die = true
+
     }
 
-    /*this.generateRandomEnemy = function(canvas) {
+    this.generateRandomEnemy = function(canvas) {
+        this.die = false
+        this.life = 100
         let randomEnemy = document.createElement('div')
         randomEnemy.setAttribute('id', 'enemy')
-        randomEnemy.style.top = math.random() * 450
-        randomEnemy.style.left = math.random() * 450
+        //ajustar coordenadas al tamaño final del sprite
+        this.posX = Math.floor(Math.random() * 450)
+        this.posY = Math.floor(Math.random() * 450)
+        randomEnemy.style.top = this.posY + 'px'
+        randomEnemy.style.left = this.posX + 'px'
         canvas.appendChild(randomEnemy)
+        console.log (randomEnemy)
         this.sprite = document.getElementById('enemy')
     }
 
 
-    this.autoTracking = function() {
+    /*this.autoTracking = function() {
         let autoTrackingInterval = setInterval(function() {
             if (self.die === true) {
                 clearInterval(autoTrackingInterval)

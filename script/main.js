@@ -50,22 +50,80 @@ function KingGame() {
     this.canvas = document.getElementById("canvas")
     this.hero = new Hero()
     this.monster = new Enemy()
-    
+    this.autoTrackingInterval
 
     this.startGame = function() {
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
+        this.autoTracking()
     }
 
-    this.damage = function() {
+    this.attack = function() {
         self.hero.attack()
         //ajustar el tamaño del div del enemigo en la función según tamaño final
-        if (self.hero.posX + 70 <= self.monster.posX && self.hero.posX >= self.monster.posX + 40 
-            || self.hero.posY + 70 <= self.monster.posY && self.hero.posY >= self.monster.posY + 40) {
-            console.log (self.monster.life)
+        if (self.hero.posX + 70 >= self.monster.posX && self.hero.posX <= self.monster.posX + 40 
+            && self.hero.posY + 70 >= self.monster.posY && self.hero.posY <= self.monster.posY + 40) {
             self.monster.life -= self.hero.strength
-            console.log (self.monster.life)
+            self.monster.isDead()
+            console.log(self.monster.life)
+            if (self.monster.die === true) {
+                console.log ("dead")
+                canvas.removeChild(self.monster.sprite)
+                clearInterval(this.autoTrackingInterval)
+                self.monster.generateRandomEnemy(canvas)
+                self.autoTracking()
+                }
         }
+    }
+
+    this.autoTracking = function() {
+        this.autoTrackingInterval = setInterval(function() {
+            // self.monster.isDead()
+            // console.log(self.monster.die)
+            // if (self.monster.die === true) {
+            //     canvas.removeChild(self.monster.sprite)
+            //     clearInterval(autoTrackingInterval)
+            //     self.monster.generateRandomEnemy(canvas)
+            //     self.autoTracking()
+                
+            if (!self.monster.die) {
+                // if (self.monster.posX < self.hero.posX && self.monster.posY < self.hero.posY) {
+                //     self.monster.direction = 'right'
+                //     self.monster.posX += 6
+                //     self.monster.posY += 6
+                //     self.monster.sprite.style.left = self.monster.posX + 'px'
+                //     self.monster.sprite.style.top = self.monster.posY + 'px'
+                // }
+                // if (self.monster.posX > self.hero.posX && self.monster.posY > self.hero.posY) {
+                //     self.monster.direction = 'left'
+                //     self.monster.posX -= 6
+                //     self.monster.posY -= 6
+                //     self.monster.sprite.style.left = self.monster.posX + 'px'
+                //     self.monster.sprite.style.top = self.monster.posY + 'px'
+                // }
+                if (self.monster.posX < self.hero.posX) {
+                    self.monster.direction = 'right'
+                    self.monster.posX += 10
+                    self.monster.sprite.style.left = self.monster.posX + 'px'
+                }
+                if (self.monster.posX > self.hero.posX) {
+                    self.monster.direction = 'left'
+                    self.monster.posX -= 10
+                    self.monster.sprite.style.left = self.monster.posX + 'px'
+                }
+                if (self.monster.posY < self.hero.posY) {
+                    self.monster.direction = 'down'
+                    self.monster.posY += 10
+                    self.monster.sprite.style.top = self.monster.posY + 'px'
+                }
+                if (self.monster.posY > self.hero.posY) {
+                    self.monster.direction = 'up'
+                    self.monster.posY -= 10
+                    self.monster.sprite.style.top = self.monster.posY + 'px'
+                }
+            }
+        }, 300);
+        
     }
 
     this.mapKeys = function() {
@@ -84,7 +142,7 @@ function KingGame() {
                 self.hero.moveRight()
             }
             if (e.key === ' ' || e.key === '+') {
-                self.damage()
+                self.attack()
             }
         })    
     }
