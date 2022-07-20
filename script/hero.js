@@ -85,10 +85,12 @@ function Hero() {
             this.sprite.style.top = this.posY + 30 + 'px'
             }
         
-        this.sprite.style.width = '32px'
-        this.sprite.style.height = '40px' 
+        //this.sprite.style.width = '32px'
+        //this.sprite.style.height = '40px'    
 
-        console.log (this.strength)
+        
+    }  
+    
 
-    }
-}
+
+ }

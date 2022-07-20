@@ -49,12 +49,23 @@ function KingGame() {
     self = this
     this.canvas = document.getElementById("canvas")
     this.hero = new Hero()
-    this.enemy = new Enemy()
+    this.monster = new Enemy()
     
 
     this.startGame = function() {
         this.hero.generateHero(this.canvas) 
-        this.enemy.generateEnemy(this.canvas)     
+        this.monster.generateEnemy(this.canvas)
+    }
+
+    this.damage = function() {
+        self.hero.attack()
+        //ajustar el tamaño del div del enemigo en la función según tamaño final
+        if (self.hero.posX + 70 <= self.monster.posX && self.hero.posX >= self.monster.posX + 40 
+            || self.hero.posY + 70 <= self.monster.posY && self.hero.posY >= self.monster.posY + 40) {
+            console.log (self.monster.life)
+            self.monster.life -= self.hero.strength
+            console.log (self.monster.life)
+        }
     }
 
     this.mapKeys = function() {
@@ -73,12 +84,14 @@ function KingGame() {
                 self.hero.moveRight()
             }
             if (e.key === ' ' || e.key === '+') {
-                self.hero.attack()
+                self.damage()
             }
         })    
     }
+
 }
 
 let game = new KingGame()
 game.startGame()
 game.mapKeys()
+
