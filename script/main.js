@@ -65,9 +65,7 @@ function KingGame() {
             && self.hero.posY + 70 >= self.monster.posY && self.hero.posY <= self.monster.posY + 40) {
             self.monster.life -= self.hero.strength
             self.monster.isDead()
-            console.log(self.monster.life)
             if (self.monster.die === true) {
-                console.log ("dead")
                 canvas.removeChild(self.monster.sprite)
                 clearInterval(this.autoTrackingInterval)
                 self.monster.generateRandomEnemy(canvas)
