@@ -27,7 +27,6 @@ function Enemy() {
         this.life = 100
         let randomEnemy = document.createElement('div')
         randomEnemy.setAttribute('id', 'enemy')
-        //ajustar coordenadas al tamaño final del sprite
         this.posX = Math.floor(Math.random() * 450)
         this.posY = Math.floor(Math.random() * 450)
         randomEnemy.style.top = this.posY + 'px'
@@ -39,7 +38,7 @@ function Enemy() {
 
     this.autoTracking = function(hero) {
         this.autoTrackingInterval = setInterval(function() {                
-            if (!self.die /*&& !self.collideHero(hero)*/) {
+            if (!self.die && !self.collideHero(hero)) {
                 if (self.posX < hero.posX) {
                     self.direction = 'right'
                     self.posX += 10
@@ -61,11 +60,21 @@ function Enemy() {
                     self.sprite.style.top = self.posY + 'px'
                 }
             }
+
+            if (!self.die && self.collideHero(hero)) {
+                hero.receiveDamage(self.strength)
+            }
+
         }, 300);
         
     }
 
-    //this.collideHero = function(hero) {
-        //if(this.posX < hero.posX +)
-    //}
+    this.collideHero = function(hero) {
+        let collide = false
+        if (this.posX <= hero.posX + 32 && this.posX >= hero.posX 
+        && this.posY <= hero.posY + 40 && this.posY >= hero.posY) {
+            collide = true
+        }
+        return collide
+    }
 }
