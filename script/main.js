@@ -68,34 +68,6 @@ function KingGame() {
         }
     }
 
-    /*this.autoTracking = function() {
-        this.autoTrackingInterval = setInterval(function() {                
-            if (!self.monster.die) {
-                if (self.monster.posX < self.hero.posX) {
-                    self.monster.direction = 'right'
-                    self.monster.posX += 10
-                    self.monster.sprite.style.left = self.monster.posX + 'px'
-                }
-                if (self.monster.posX > self.hero.posX) {
-                    self.monster.direction = 'left'
-                    self.monster.posX -= 10
-                    self.monster.sprite.style.left = self.monster.posX + 'px'
-                }
-                if (self.monster.posY < self.hero.posY) {
-                    self.monster.direction = 'down'
-                    self.monster.posY += 10
-                    self.monster.sprite.style.top = self.monster.posY + 'px'
-                }
-                if (self.monster.posY > self.hero.posY) {
-                    self.monster.direction = 'up'
-                    self.monster.posY -= 10
-                    self.monster.sprite.style.top = self.monster.posY + 'px'
-                }
-            }
-        }, 300);
-        
-    }*/
-
     this.mapKeys = function() {
         document.addEventListener('keydown', function(e) {
             console.log(e.key)

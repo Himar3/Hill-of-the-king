@@ -97,41 +97,41 @@ function Hero() {
 
     this.attack = function() {
         if (this.direction === 'down') {
-            if (this.posX > 60 && this.posY > 60) {
+            /*if (this.posX > 60 && this.posY > 60) {
                 this.sprite.style.left = this.posX - 25 + 'px'
                 this.sprite.style.top = this.posY - 25 + 'px'
-            }
+            }*/
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_down.gif)"
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_down.gif)"
         }
         if (this.direction === 'up') {
-            if (this.posX > 60 && this.posY > 60) {
+            /*if (this.posX > 60 && this.posY > 60) {
                 this.sprite.style.left = this.posX - 25 + 'px'
                 this.sprite.style.top = this.posY - 25 + 'px'
-                }
+            }*/
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_up.gif)"
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_up.gif)"
             }
         if (this.direction === 'left') {
-            if (this.posX > 60 && this.posY > 60) {
+            /*if (this.posX > 60 && this.posY > 60) {
                 this.sprite.style.left = this.posX - 25 + 'px'
                 this.sprite.style.top = this.posY - 25 + 'px'
-            }
+            }*/
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_left.gif)"
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_left.gif)"
         }
         if (this.direction === 'right') {
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_right.gif)"
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.top = this.posY - 20 + 'px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_right.gif)"
+            /*this.sprite.style.top = this.posY - 20 + 'px'
             if (this.posX > 60 && this.posY > 60) {
                 this.sprite.style.left = this.posX + 25 + 'px'
                 this.sprite.style.top = this.posY + 25 + 'px'
-            }
+            }*/
         }
     }
 

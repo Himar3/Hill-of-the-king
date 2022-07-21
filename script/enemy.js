@@ -62,7 +62,7 @@ function Enemy() {
             }
 
             if (!self.die && self.collideHero(hero)) {
-                self.receiveDamage(hero)
+                self.damageToHero(hero)
             }
 
         }, 300);
@@ -74,11 +74,19 @@ function Enemy() {
         if (this.posX <= hero.posX + 32 && this.posX >= hero.posX 
         && this.posY <= hero.posY + 40 && this.posY >= hero.posY) {
             collide = true
+            return collide
         }
-        return collide
-    }
+        else if (this.posX <= hero.posX + 32 && this.posX >= hero.posX 
+            && this.posY <= hero.posY + 40 && this.posY >= hero.posY 
+            &&this.posX + 50 < hero.posX + 32 && this.posY + 50 < hero.posY + 40) {
+                this.posY -= 10
+                this.sprite.style.top = self.posY + 'px'
+            return collide
+        }
+       //hitbox manual aumentar tamaño div para no cortar animacion, cambiar sprites,definir el area de colision manuealmente como x+(lo que sea) y x+(borde del hero) - (lo que sea)
+    }   //centrar el backgroundImage en horizontal y vertical dentro del div
 
-    this.receiveDamage = function(hero) {
+    this.damageToHero = function(hero) {
         if (this.collideHero(hero) === true) {
             hero.life -= self.strength - hero.defense
             console.log(hero.life)
