@@ -39,7 +39,7 @@ function Enemy() {
 
     this.autoTracking = function(hero) {
         this.autoTrackingInterval = setInterval(function() {                
-            if (!self.die && !self.collideHero(hero)) {
+            if (!self.die /*&& !self.collideHero(hero)*/) {
                 if (self.posX < hero.posX) {
                     self.direction = 'right'
                     self.posX += 10
@@ -65,7 +65,7 @@ function Enemy() {
         
     }
 
-    this.collideHero = function(hero) {
-        if(this.posX < hero.posX +)
-    }
+    //this.collideHero = function(hero) {
+        //if(this.posX < hero.posX +)
+    //}
 }
