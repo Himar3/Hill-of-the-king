@@ -1,4 +1,5 @@
 function Hero() {
+    let self = this
     this.sprite 
     this.posX = 30 
     this.posY = 220
@@ -132,24 +133,10 @@ function Hero() {
             }
         }
     }
-    //no funciona
-    /*this.stopAtk = function() {
-        //cannot read properties undefined 'style'
-        this.sprite.style.width = '32px'
-        this.sprite.style.height = '40px'
-        switch(this.direction) {
-            case 'up':
-                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_up_anim.gif)"
-                break
-            case 'down':
-                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_down_anim.gif)"
-                break
-            case 'left':
-                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_left_anim.gif)"
-                break
-            case 'right':
-                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_right_anim.gif)"
-                break
-        }
-    }*/
+
+    this.stopAtk = function(iddleSprite) {
+        self.sprite.style.width = '32px'
+        self.sprite.style.height = '40px'
+        self.sprite.style.backgroundImage = iddleSprite
+    }
 }

@@ -1,5 +1,5 @@
 function Enemy() {
-    //self = this
+    let self = this
     this.sprite
     this.posX = 450 
     this.posY = 220
