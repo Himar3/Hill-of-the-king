@@ -1,61 +1,39 @@
-/*let canvas = document.getElementById("canvas")
-let score = document.getElementById("score")
-let life = document.getElementById("life")
-let direction = 'down'
- 
-function GameStart() {
-    this.score = 0,
-    this.life = 100,
-    this.HeroGen(),
-    this.Enemy = new EnemyGen(),
-}
-
-function Hero() {
-    this.life = 100,
-    this.attack = 25,
-    this.movement = new HeroMov,
-    this.range = 10,
-    this.posX =
-    this.posY =
-}
-
-function HeroGen() {
-    this.hero = document.createElement("div"),
-    this.hero.setAttribute(id, 'hero'),
-    this.hero.setAttribute(top, 0 + 'px'),
-    this.hero.setAttribute(left, 0 + 'px'),
-    canvas.appendChild(hero)
-    
-    this.survivor = new Hero(),
-    
-}
-
-function HeroMov(survivor) {
-    
-    this.moveUp = function(e) {
-        e.addEventListener(keydown)
-        direction = 'up'
-        this.Hero.posY--
-    }
-}
-function score() {
-     
-}
-
-HeroGen()
-*/
-
 function KingGame() {
+    //Atributos
     self = this
     this.canvas = document.getElementById("canvas")
     this.hero = new Hero()
     this.monster = new Enemy()
     this.autoTrackingInterval
+    this.score = document.getElementById('points')
+    this.points = 0
 
+    //Métodos
     this.startGame = function() {
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
         this.autoTracking()
+    }
+
+    this.knockBack = function() {
+        switch(this.hero.direction) {
+            case 'up':
+                this.monster.posY -= 50
+                this.monster.sprite.style.top = this.monster.posY + 'px'
+                break
+            case 'down':
+                this.monster.posY += 50
+                this.monster.sprite.style.top = this.monster.posY + 'px'
+                break
+            case 'left':
+                this.monster.posX += 50
+                this.monster.sprite.style.left = this.monster.posX + 'px'
+                break
+            case 'right':
+                this.monster.posX -= 50
+                this.monster.sprite.style.left = this.monster.posX + 'px'
+                break
+        }
     }
 
     this.attack = function() {
@@ -64,8 +42,12 @@ function KingGame() {
         if (self.hero.posX + 70 >= self.monster.posX && self.hero.posX <= self.monster.posX + 40 
             && self.hero.posY + 70 >= self.monster.posY && self.hero.posY <= self.monster.posY + 40) {
             self.monster.life -= self.hero.strength
+            this.knockBack()
             self.monster.isDead()
             if (self.monster.die === true) {
+                console.log(self.score.innerText)
+                self.points += 25
+                self.score.innerText = self.points
                 canvas.removeChild(self.monster.sprite)
                 clearInterval(this.autoTrackingInterval)
                 self.monster.generateRandomEnemy(canvas)

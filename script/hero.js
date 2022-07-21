@@ -3,6 +3,7 @@ function Hero() {
     this.posX = 30 
     this.posY = 220
     this.strength = 25
+    this.defense = 10
     this.life = 100
     this.direction = 'down'
 

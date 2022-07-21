@@ -3,7 +3,7 @@ function Enemy() {
     this.sprite
     this.posX = 450 
     this.posY = 220
-    this.strength = 25
+    this.strength = 20
     this.life = 100
     this.direction = 'down'
     this.die = false
