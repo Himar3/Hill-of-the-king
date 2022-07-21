@@ -53,7 +53,7 @@
     height: 56px;
     top: 515px;
     left: 255px;
-    background-image: url(../assets/images/life100.png);
+    background-image: url(../assets/images/hud/life100.png);
 }
 
 #canvas {

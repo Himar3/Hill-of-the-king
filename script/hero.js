@@ -6,6 +6,7 @@ function Hero() {
     this.strength = 25
     this.defense = 10
     this.life = 100
+    this.lifeAnimation = document.getElementById('life')
     this.direction = 'down'
     this.level = 0
     this.experience = 0
@@ -138,5 +139,41 @@ function Hero() {
         self.sprite.style.width = '32px'
         self.sprite.style.height = '40px'
         self.sprite.style.backgroundImage = iddleSprite
+    }
+
+    this.lifeHud = function() {
+        if (this.life > 90) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life100.png)"
+        }
+        else if (this.life > 80) {
+        this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life90.png)"
+        }
+        else if (this.life > 70) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life80.png)"
+        }
+        else if (this.life > 60) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life70.png)"
+        }
+        else if (this.life > 50) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life60.png)"
+        }
+        else if (this.life > 40) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life50.png)"
+        }
+        else if (this.life > 30) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life40.png)"
+        }
+        else if (this.life > 20) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life30.png)"
+        }
+        else if (this.life > 10) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life20.png)"
+        }
+        else if (this.life > 0) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life10.png)"
+        }
+        else if (this.life <= 0) {
+            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life0.png)"
+        }
     }
 }

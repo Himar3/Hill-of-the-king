@@ -62,7 +62,7 @@ function Enemy() {
             }
 
             if (!self.die && self.collideHero(hero)) {
-                hero.receiveDamage(self.strength)
+                self.receiveDamage(hero)
             }
 
         }, 300);
@@ -77,4 +77,13 @@ function Enemy() {
         }
         return collide
     }
+
+    this.receiveDamage = function(hero) {
+        if (this.collideHero(hero) === true) {
+            hero.life -= self.strength - hero.defense
+            console.log(hero.life)
+            hero.lifeHud()
+        }
+    }
+
 }
