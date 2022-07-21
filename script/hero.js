@@ -1,11 +1,15 @@
 function Hero() {
-    this.sprite
+    this.sprite 
     this.posX = 30 
     this.posY = 220
     this.strength = 25
     this.defense = 10
     this.life = 100
     this.direction = 'down'
+    this.level = 0
+    this.experience = 0
+
+    
 
     this.generateHero = function(canvas) {
         let hero = document.createElement("div")
@@ -15,6 +19,43 @@ function Hero() {
         canvas.appendChild(hero)
         this.sprite = document.getElementById('hero')
     }
+
+    /*this.levelUp = function() {
+        if (this.experience > 100) {
+            this.level += 1
+            this.experience = 0
+            this.growByLevel()
+        }
+        //añadir ifs por cada seccion de la barra de exp para meter el png correspondiente
+    }*/
+
+    /*this.growByLevel = function() {
+        if (this.level === 1) {
+            this.strength += 5
+            this.defense += 2
+            this.life = 110
+        }
+        if (this.level === 2) {
+            this.strength += 5
+            this.defense += 2
+            this.life = 120
+        }
+        if (this.level === 3) {
+            this.strength += 5
+            this.defense += 2
+            this.life = 130
+        }
+        if (this.level === 4) {
+            this.strength += 5
+            this.defense += 2
+            this.life = 140
+        }
+        if (this.level === 5) {
+            this.strength += 5
+            this.defense += 2
+            this.life = 150
+        }
+    }*/
 
     this.moveDown = function() {
         this.direction = 'down'
@@ -54,44 +95,61 @@ function Hero() {
 
     this.attack = function() {
         if (this.direction === 'down') {
+            if (this.posX > 60 && this.posY > 60) {
+                this.sprite.style.left = this.posX - 25 + 'px'
+                this.sprite.style.top = this.posY - 25 + 'px'
+            }
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack_***.png)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_down.gif)"
         }
         if (this.direction === 'up') {
             if (this.posX > 60 && this.posY > 60) {
-                this.sprite.style.left = this.posX - 30 + 'px'
-                this.sprite.style.top = this.posY - 30 + 'px'
+                this.sprite.style.left = this.posX - 25 + 'px'
+                this.sprite.style.top = this.posY - 25 + 'px'
                 }
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack_***.png)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_up.gif)"
             }
         if (this.direction === 'left') {
             if (this.posX > 60 && this.posY > 60) {
-                this.sprite.style.left = this.posX - 30 + 'px'
-                this.sprite.style.top = this.posY - 30 + 'px'
+                this.sprite.style.left = this.posX - 25 + 'px'
+                this.sprite.style.top = this.posY - 25 + 'px'
             }
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_atk_left.gif)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_left.gif)"
         }
         if (this.direction === 'right') {
             this.sprite.style.width = '70px'
             this.sprite.style.height = '70px'
-            this.sprite.style.backgroundImage = "url(assets/images/char_attack_right_anim.gif)"
-        }
-        if (this.posX > 60 && this.posY > 60) {
-            this.sprite.style.left = this.posX + 30 + 'px'
-            this.sprite.style.top = this.posY + 30 + 'px'
+            this.sprite.style.top = this.posY - 20 + 'px'
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_right.gif)"
+            if (this.posX > 60 && this.posY > 60) {
+                this.sprite.style.left = this.posX + 25 + 'px'
+                this.sprite.style.top = this.posY + 25 + 'px'
             }
-        
-        //this.sprite.style.width = '32px'
-        //this.sprite.style.height = '40px'    
-
-        
-    }  
-    
-
-
- }
+        }
+    }
+    //no funciona
+    /*this.stopAtk = function() {
+        //cannot read properties undefined 'style'
+        this.sprite.style.width = '32px'
+        this.sprite.style.height = '40px'
+        switch(this.direction) {
+            case 'up':
+                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_up_anim.gif)"
+                break
+            case 'down':
+                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_down_anim.gif)"
+                break
+            case 'left':
+                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_left_anim.gif)"
+                break
+            case 'right':
+                this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/char_idle_right_anim.gif)"
+                break
+        }
+    }*/
+}

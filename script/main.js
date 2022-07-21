@@ -7,6 +7,7 @@ function KingGame() {
     this.autoTrackingInterval
     this.score = document.getElementById('points')
     this.points = 0
+    this.enemysQuantity = 2
 
     //Métodos
     this.startGame = function() {
@@ -36,6 +37,14 @@ function KingGame() {
         }
     }
 
+    /*this.moreEnemys = function() {
+        this.enemysQuantity += 1
+        this.index = 1
+        while (index < enemysQuantity) {
+            self.monster.generateRandomEnemy(canvas)
+        }
+    }*/
+
     this.attack = function() {
         self.hero.attack()
         //ajustar el tamaño del div del enemigo en la función según tamaño final
@@ -45,15 +54,18 @@ function KingGame() {
             this.knockBack()
             self.monster.isDead()
             if (self.monster.die === true) {
-                console.log(self.score.innerText)
                 self.points += 25
+                self.hero.experience += 10
                 self.score.innerText = self.points
                 canvas.removeChild(self.monster.sprite)
                 clearInterval(this.autoTrackingInterval)
+                //self.moreEnemys()
                 self.monster.generateRandomEnemy(canvas)
                 self.autoTracking()
                 }
         }
+        //no funciona setTimeout
+        //setTimeout(self.hero.stopAtk, 1000) 
     }
 
     this.autoTracking = function() {

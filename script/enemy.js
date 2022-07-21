@@ -33,7 +33,6 @@ function Enemy() {
         randomEnemy.style.top = this.posY + 'px'
         randomEnemy.style.left = this.posX + 'px'
         canvas.appendChild(randomEnemy)
-        console.log (randomEnemy)
         this.sprite = document.getElementById('enemy')
     }
 
