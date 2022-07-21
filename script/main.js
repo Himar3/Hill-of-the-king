@@ -13,7 +13,7 @@ function KingGame() {
     this.startGame = function() {
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
-        this.autoTracking()
+        this.monster.autoTracking(this.hero)
     }
 
     this.knockBack = function() {
@@ -63,12 +63,12 @@ function KingGame() {
                 clearInterval(this.autoTrackingInterval)
                 //self.moreEnemys()
                 self.monster.generateRandomEnemy(canvas)
-                self.autoTracking()
+                self.monster.autoTracking(this.hero)
                 }
         }
     }
 
-    this.autoTracking = function() {
+    /*this.autoTracking = function() {
         this.autoTrackingInterval = setInterval(function() {                
             if (!self.monster.die) {
                 if (self.monster.posX < self.hero.posX) {
@@ -94,7 +94,7 @@ function KingGame() {
             }
         }, 300);
         
-    }
+    }*/
 
     this.mapKeys = function() {
         document.addEventListener('keydown', function(e) {

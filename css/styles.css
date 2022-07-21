@@ -87,9 +87,10 @@
 #enemy {
     position: absolute;
     background-repeat: no-repeat;
-    width: 32px;
+    width: 40px;
     height: 40px;
     border: 2px solid red;
+    background-image: url(../assets/images/enemys/spider_enemy_move.gif);
 }
 
 

@@ -37,48 +37,35 @@ function Enemy() {
     }
 
 
-    /*this.autoTracking = function() {
-        let autoTrackingInterval = setInterval(function() {
-            if (self.die === true) {
-                clearInterval(autoTrackingInterval)
-                self.generateEnemy()
-            } else {
-                if (self.posX < Hero.posX && self.posY < Hero.posY) {
-                    this.direction = 'right'
-                    self.posX += 6
-                    self.posY += 6
-                    self.sprite.style.left = this.posX + 'px'
-                    self.sprite.style.top = this.posY + 'px'
-                }
-                if (self.posX > Hero.posX && self.posY > Hero.posY) {
-                    this.direction = 'left'
-                    self.posX -= 6
-                    self.posY -= 6
-                    self.sprite.style.left = this.posX + 'px'
-                    self.sprite.style.top = this.posY + 'px'
-                }
-                if (self.posX < Hero.posX) {
-                    this.direction = 'right'
+    this.autoTracking = function(hero) {
+        this.autoTrackingInterval = setInterval(function() {                
+            if (!self.die && !self.collideHero(hero)) {
+                if (self.posX < hero.posX) {
+                    self.direction = 'right'
                     self.posX += 10
-                    self.sprite.style.left = this.posX + 'px'
+                    self.sprite.style.left = self.posX + 'px'
                 }
-                if (self.posX > Hero.posX) {
-                    this.direction = 'left'
+                if (self.posX > hero.posX) {
+                    self.direction = 'left'
                     self.posX -= 10
-                    self.sprite.style.left = this.posX + 'px'
+                    self.sprite.style.left = self.posX + 'px'
                 }
-                if (self.posY < Hero.posY) {
-                    this.direction = 'down'
+                if (self.posY < hero.posY) {
+                    self.direction = 'down'
                     self.posY += 10
-                    self.sprite.style.top = this.posY + 'px'
+                    self.sprite.style.top = self.posY + 'px'
                 }
-                if (self.posY > Hero.posY) {
-                    this.direction = 'up'
+                if (self.posY > hero.posY) {
+                    self.direction = 'up'
                     self.posY -= 10
-                    self.sprite.style.top = this.posY + 'px'
+                    self.sprite.style.top = self.posY + 'px'
                 }
             }
         }, 300);
         
-    }*/
+    }
+
+    this.collideHero = function(hero) {
+        if(this.posX < hero.posX +)
+    }
 }
