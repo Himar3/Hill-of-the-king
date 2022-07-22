@@ -27,70 +27,142 @@ function Enemy() {
         this.life = 100
         let randomEnemy = document.createElement('div')
         randomEnemy.setAttribute('id', 'enemy')
-        this.posX = Math.floor(Math.random() * 450)
-        this.posY = Math.floor(Math.random() * 450)
+        this.posX = Math.floor(Math.random() * 250 + 250)
+        this.posY = Math.floor(Math.random() * 250 + 250)
         randomEnemy.style.top = this.posY + 'px'
         randomEnemy.style.left = this.posX + 'px'
         canvas.appendChild(randomEnemy)
         this.sprite = document.getElementById('enemy')
     }
 
+    this.generateBossEnemy = function(canvas) {
+        this.die = false
+        this.life = 150
+        this.strength = 40
+        let bossEnemy = document.createElement('div')
+        bossEnemy.setAttribute('id', 'bossEnemy')
+        this.posX = 250
+        this.posY = 0
+        bossEnemy.style.top = this.posY + 'px'
+        bossEnemy.style.left = this.posX + 'px'
+        canvas.appendChild(bossEnemy)
+        this.sprite = document.getElementById('bossEnemy')
+        //setTimeout(this.sprite.style.backgroundImage = url(assets/images/enemys/***/.gif), 1000)        
+    }
+
 
     this.autoTracking = function(hero) {
         this.autoTrackingInterval = setInterval(function() {                
             if (!self.die && !self.collideHero(hero)) {
-                if (self.posX < hero.posX) {
+                if (self.posX <= hero.posX) {
                     self.direction = 'right'
-                    self.posX += 10
+                    self.posX += 8
                     self.sprite.style.left = self.posX + 'px'
                 }
-                if (self.posX > hero.posX) {
+                if (self.posX >= hero.posX + 40) {
                     self.direction = 'left'
-                    self.posX -= 10
+                    self.posX -= 8
                     self.sprite.style.left = self.posX + 'px'
                 }
-                if (self.posY < hero.posY) {
+                if (self.posY + 30 <= hero.posY) {
                     self.direction = 'down'
-                    self.posY += 10
+                    self.posY += 8
                     self.sprite.style.top = self.posY + 'px'
                 }
-                if (self.posY > hero.posY) {
+                if (self.posY >= hero.posY + 40) {
                     self.direction = 'up'
-                    self.posY -= 10
+                    self.posY -= 8
                     self.sprite.style.top = self.posY + 'px'
                 }
             }
 
             if (!self.die && self.collideHero(hero)) {
-                self.damageToHero(hero)
+                setTimeout(self.damageToHero(hero), 500)
             }
 
-        }, 300);
+        }, 500);
         
     }
 
     this.collideHero = function(hero) {
         let collide = false
-        if (this.posX <= hero.posX + 32 && this.posX >= hero.posX 
-        && this.posY <= hero.posY + 40 && this.posY >= hero.posY) {
-            collide = true
-            return collide
+        if (this.posX <= hero.posX + 40 && this.posX + 40>= hero.posX 
+            && this.posY <= hero.posY + 40 && this.posY + 30 >= hero.posY) {
+                collide = true
+                console.log(collide)
+                return collide
         }
-        else if (this.posX <= hero.posX + 32 && this.posX >= hero.posX 
+        else if (this.posX <= hero.posX + 50 && this.posX >= hero.posX 
             && this.posY <= hero.posY + 40 && this.posY >= hero.posY 
-            &&this.posX + 50 < hero.posX + 32 && this.posY + 50 < hero.posY + 40) {
-                this.posY -= 10
-                this.sprite.style.top = self.posY + 'px'
-            return collide
+            &&this.posX + 50 <= hero.posX + 50 && this.posY + 40 <= hero.posY + 50) {
+                console.log(collide)
+                self.posY += 10
+                self.sprite.style.top = self.posY + 'px'
+                collide = true
+                return collide
         }
-       //hitbox manual aumentar tamaño div para no cortar animacion, cambiar sprites,definir el area de colision manuealmente como x+(lo que sea) y x+(borde del hero) - (lo que sea)
-    }   //centrar el backgroundImage en horizontal y vertical dentro del div
+    }   
+
+    /*this.knockbackToHero = function (hero) {
+        if (this.direction === 'up') {
+            hero.posY -= 60
+            hero.sprite.style.top = hero.posY + 'px'
+        }
+        if (this.direction === 'down') {
+            hero.posY += 60
+            hero.sprite.style.top = hero.posY + 'px'
+        }
+        if (this.direction === 'left') {
+            hero.posX -= 60
+            hero.sprite.style.left = hero.posX + 'px'
+        }
+        if (this.direction === 'right') {
+            hero.posX += 60
+            hero.sprite.style.left = hero.posX + 'px'
+        }
+
+    }*/
 
     this.damageToHero = function(hero) {
         if (this.collideHero(hero) === true) {
             hero.life -= self.strength - hero.defense
-            console.log(hero.life)
             hero.lifeHud()
+            if (this.direction === 'up') {
+                if (hero.posY > 10) {
+                    hero.sprite.style.top = hero.posY + 'px'
+                    hero.posY -= 30
+                }
+            }
+            if (this.direction === 'down') {
+                if (hero.posY < 440) {
+                    hero.posY += 30
+                    hero.sprite.style.top = hero.posY + 'px'
+                }
+            }
+            if (this.direction === 'left') {
+                if (hero.posX > 10) {
+                    hero.posX -= 30
+                    hero.sprite.style.left = hero.posX + 'px'
+                }
+            }
+            if (this.direction === 'right') {
+                if (hero.posX < 440) {
+                    hero.posX += 30
+                    hero.sprite.style.left = hero.posX + 'px'
+                }
+            }
+            //no se como llamar a la funcion. direction undefined
+            //hero.knockbackToHero()
+            if (hero.life <= 0) {
+                hero.posY -= 20
+                hero.sprite.style.top = hero.posY + 'px'
+                //setTimeout no funciona
+                setTimeout(hero.sprite.style.backgroundImage 
+                = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)", 5000)
+                hero.die = true
+                this.posY = - 6000
+                this.sprite.style.top = this.posY + 'px'
+            }
         }
     }
 

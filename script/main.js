@@ -5,9 +5,10 @@ function KingGame() {
     this.hero = new Hero()
     this.monster = new Enemy()
     this.autoTrackingInterval
+    this.gameOverInterval
     this.score = document.getElementById('points')
     this.points = 0
-    this.enemysQuantity = 2
+    this.killCounter = 0
 
     //Métodos
     this.startGame = function() {
@@ -16,55 +17,53 @@ function KingGame() {
         this.monster.autoTracking(this.hero)
     }
 
-    this.knockBack = function() {
+    this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
             case 'up':
-                this.monster.posY -= 50
+                this.monster.posY -= 100
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
             case 'down':
-                this.monster.posY += 50
+                this.monster.posY += 100
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
             case 'left':
-                this.monster.posX += 50
+                this.monster.posX += 100
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
             case 'right':
-                this.monster.posX -= 50
+                this.monster.posX -= 100
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
         }
     }
-
-    /*this.moreEnemys = function() {
-        this.enemysQuantity += 1
-        this.index = 1
-        while (index < enemysQuantity) {
-            self.monster.generateRandomEnemy(canvas)
-        }
-    }*/
 
     this.attack = function() {
         let iddleSprite = self.hero.sprite.style.backgroundImage
         self.hero.attack()
         setTimeout(self.hero.stopAtk, 500, iddleSprite) 
         //ajustar el tamaño del div del enemigo en la función según tamaño final
-        if (self.hero.posX + 70 >= self.monster.posX && self.hero.posX <= self.monster.posX + 40 
-            && self.hero.posY + 70 >= self.monster.posY && self.hero.posY <= self.monster.posY + 40) {
+        if (self.hero.posX + 70 >= self.monster.posX && self.hero.posX <= self.monster.posX + 50 
+            && self.hero.posY + 70 >= self.monster.posY && self.hero.posY <= self.monster.posY + 50) {
             self.monster.life -= self.hero.strength
-            this.knockBack()
+            this.knockBackToEnemy()
             self.monster.isDead()
             if (self.monster.die === true) {
                 self.points += 25
-                self.hero.experience += 10
+                self.killCounter += 1
+                self.hero.experience += 25
+                self.hero.levelUp()
                 self.score.innerText = self.points
                 canvas.removeChild(self.monster.sprite)
                 clearInterval(this.autoTrackingInterval)
-                //self.moreEnemys()
-                self.monster.generateRandomEnemy(canvas)
-                self.monster.autoTracking(this.hero)
+                if (self.killCounter >= 3){
+                    self.killCounter = 0
+                    self.monster.generateBossEnemy(canvas)
+                } else {
+                    self.monster.generateRandomEnemy(canvas)
                 }
+                setTimeout(self.monster.autoTracking(self.hero), 1500)           
+            }
         }
     }
 
@@ -88,7 +87,13 @@ function KingGame() {
             }
         })    
     }
-
+    /*this.gameOver = function() {
+        this.gameOverInterval = setInterval(function() {
+            if (self.hero.die === true){
+                //gameover
+            }
+        }, 1000)
+    }*/
 }
 
 let game = new KingGame()
