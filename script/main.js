@@ -20,19 +20,19 @@ function KingGame() {
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
             case 'up':
-                this.monster.posY -= 50
+                this.monster.posY -= 100
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
             case 'down':
-                this.monster.posY += 50
+                this.monster.posY += 100
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
             case 'left':
-                this.monster.posX -= 50
+                this.monster.posX += 100
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
             case 'right':
-                this.monster.posX += 50
+                this.monster.posX -= 100
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
         }
@@ -87,14 +87,10 @@ function KingGame() {
             }
         })    
     }
-    /*this.gameOver = function() {
-        this.gameOverInterval = setInterval(function() {
-            if (self.hero.die === true){
-                //gameover
-            }
-        }, 1000)
-    }*/
+
 }
+
+
 
 let game = new KingGame()
 game.startGame()

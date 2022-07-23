@@ -7,6 +7,8 @@ function Enemy() {
     this.life = 100
     this.direction = 'down'
     this.die = false
+    this.gameOver = document.getElementById('gameover')
+    
 
     this.generateEnemy = function(canvas) {
         let enemy = document.createElement('div')
@@ -171,10 +173,15 @@ function Enemy() {
             if (hero.life <= 0) {
                 hero.die = true
                 //let contadorEspera = setTimeout(self.animacionMuerteHeroe(hero), 500)
-                hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)"                
-            }
+                hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)";
+                this.gameOver.style.display = 'block';
+            }         
         }
+
     }
+
+
+    
 
     this.animacionMuerteHeroe = function(hero) {
         hero.posY -= 25
