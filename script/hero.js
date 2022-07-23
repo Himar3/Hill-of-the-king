@@ -65,7 +65,7 @@ function Hero() {
     this.moveDown = function() {
         this.direction = 'down'
         if (this.posY < 440) {                        
-            this.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_idle_down_72.gif)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_run_down_72.gif)"
             this.posY += 10
             this.sprite.style.top = this.posY + 'px'
         }
@@ -74,7 +74,7 @@ function Hero() {
     this.moveUp = function() {
         this.direction = 'up'
         if (this.posY > - 20) {            
-            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_up.png)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_run_up_72.gif)"
             this.posY -= 10
             this.sprite.style.top = this.posY + 'px'
         }
@@ -83,7 +83,7 @@ function Hero() {
     this.moveLeft = function() {
         this.direction = 'left'
         if (this.posX > - 20) {            
-            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_left.png)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_run_left_72.gif)"
             this.posX -= 10
             this.sprite.style.left = this.posX + 'px'
         }
@@ -92,7 +92,7 @@ function Hero() {
     this.moveRight = function() {
         this.direction = 'right'
         if (this.posX < 450) {                       
-            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_right.png)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_mov/hero_run_right_72.gif)"
             this.posX += 10
             this.sprite.style.left = this.posX + 'px'
         }
@@ -100,10 +100,10 @@ function Hero() {
 
     this.attack = function() {
         if (this.direction === 'down') {
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_down.gif)"   
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_down_72.gif)"   
         }
         if (this.direction === 'up') {
-            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_up.gif)"
+            this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_up_72.gif)"
             }
         if (this.direction === 'left') {
             this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_left_72.gif)"
@@ -117,26 +117,29 @@ function Hero() {
         self.sprite.style.backgroundImage = iddleSprite
     }
 
-    this.knockbackToHero = function (monster) {
+    /*this.knockbackToHero = function (monster) {
         switch(monster.direction) {
             case 'up':
-                this.posY -= 100
+                this.posY -= 60
                 this.sprite.style.top = this.posY + 'px'
+                this.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_down.gif"
                 break
             case 'down':
-                this.posY += 100
+                this.posY += 60
                 this.sprite.style.top = this.posY + 'px'
+                this.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_up.gif"
                 break
             case 'left':
-                this.posX += 100
+                this.posX += 60
                 this.sprite.style.left = this.posX + 'px'
+                this.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_right.gif"
                 break
             case 'right':
-                this.posX -= 100
+                this.posX -= 60
                 this.sprite.style.left = this.posX + 'px'
                 break
         }
-    }
+    }*/
 
 
     this.lifeHud = function() {

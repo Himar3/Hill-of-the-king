@@ -50,9 +50,21 @@ function Enemy() {
         //setTimeout(this.sprite.style.backgroundImage = url(assets/images/enemys/***/.gif), 1000)        
     }
 
+    /*this.randomMovement = function() {
+        this.pickPositiveOrNegative = [-10, 10]
+        this.pickXorY = [self.posX, self.posY]
+        this.randomMovementInterval = setInterval(function() {
+            this.pickXorY[Math.floor(Math.random() * 2)] += self.pickPositiveOrNegative[Math.floor(Math.random() * 2)]
+            self.sprite.style.left = self.posX + 'px'
+            self.sprite.style.top = self.posY + 'px'
+        }, 1500)
+    }*/
 
     this.autoTracking = function(hero) {
-        this.autoTrackingInterval = setInterval(function() {                
+        this.autoTrackingInterval = setInterval(function() {  
+            //if (hero.die === true) {
+                //clearInterval(autoTrackingInterval)
+                //self.randomMovement()              
             if (!self.die && !self.collideHero(hero)) {
                 if (self.posX <= hero.posX) {
                     self.direction = 'right'
@@ -75,12 +87,11 @@ function Enemy() {
                     self.sprite.style.top = self.posY + 'px'
                 }
             }
-
             if (!self.die && self.collideHero(hero)) {
-                setTimeout(self.damageToHero(hero), 500)
+                self.damageToHero(hero)
             }
-
-        }, 500);
+            //}
+        }, 200);
         
     }
 
@@ -129,41 +140,46 @@ function Enemy() {
             hero.lifeHud()
             if (this.direction === 'up') {
                 if (hero.posY > 10) {
+                    hero.posY -= 40
                     hero.sprite.style.top = hero.posY + 'px'
-                    hero.posY -= 30
+                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_down_72.gif)"
                 }
             }
             if (this.direction === 'down') {
                 if (hero.posY < 440) {
-                    hero.posY += 30
+                    hero.posY += 40
                     hero.sprite.style.top = hero.posY + 'px'
+                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_up_72.gif)"
                 }
             }
             if (this.direction === 'left') {
                 if (hero.posX > 10) {
-                    hero.posX -= 30
+                    hero.posX -= 40
                     hero.sprite.style.left = hero.posX + 'px'
+                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_right_72.gif)"
                 }
             }
             if (this.direction === 'right') {
                 if (hero.posX < 440) {
-                    hero.posX += 30
+                    hero.posX += 40
                     hero.sprite.style.left = hero.posX + 'px'
+                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_left_72.gif)"
                 }
             }
             //no se como llamar a la funcion. direction undefined
             //hero.knockbackToHero()
             if (hero.life <= 0) {
-                hero.posY -= 20
-                hero.sprite.style.top = hero.posY + 'px'
-                //setTimeout no funciona
-                setTimeout(hero.sprite.style.backgroundImage 
-                = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)", 5000)
                 hero.die = true
-                this.posY = - 6000
-                this.sprite.style.top = this.posY + 'px'
+                //let contadorEspera = setTimeout(self.animacionMuerteHeroe(hero), 500)
+                hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)"                
             }
         }
+    }
+
+    this.animacionMuerteHeroe = function(hero) {
+        hero.posY -= 25
+        hero.sprite.style.top = this.posY + 'px'
+        hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)"
     }
 
 }
