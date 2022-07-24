@@ -195,10 +195,10 @@ function Hero() {
                 self.sprite.style.backgroundImage = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)"
                 game.gameOverAnimation()
             }, 800)
-            let cleanCharacters = setTimeout(function() {
+            /*let cleanCharacters = setTimeout(function() {
                 canvas.removeChild(self.sprite)
                 //canvas.removeChild(self.monster.sprite)
-            }, 2000)
+            }, 2000)*/
         } 
     }
 }

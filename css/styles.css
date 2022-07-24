@@ -7,24 +7,33 @@
 
 #start {
     position: absolute;
-    width: 100%;
-    height: 1000px;
+    width: 700px;
+    height: 700px;
     z-index: 1;
-    background-color: rgba(0, 0, 255, 0.26);
-    /*background-image: url();*/
+    background-image: url(../assets/images/hud/start_game.png);
+    display: block;
 }
 
 #startButton {
     position: absolute;
     font-size: 30px;
-    margin: 20% 43%;
-    width: 228px;
-    height: 106px;
-    color: white;
-    border: 5px solid rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    border-radius: 25px;
-    background-image: url();
+    margin: 45% 33%;
+    width: 230px;
+    height: 108px;
+    background-color: transparent;
+    border-color: transparent;
+    background-image: url(../assets/images/hud/button_start_230x180.png);
+}
+
+#startButton:hover {
+    position: absolute;
+    cursor: pointer;
+    margin: 45% 33%;
+    width: 236px;
+    height: 114px;
+    background-color: transparent;
+    border-color: transparent;
+    background-image: url(../assets/images/hud/button_start_no_shadow.png);
 }
 
 #retryButton {
@@ -48,13 +57,6 @@
     
 }
 
-#buttonStart:hover {
-    font-size: 40px;
-    cursor: pointer;
-    border: 3px solid rgb(255, 255, 255);
-    background-color: rgb(39, 39, 39)
-    
-}
 
 #title {
     position: absolute;
@@ -62,6 +64,7 @@
     width: 440px;
     height: 171px;
     background-image: url(../assets/images/hud/hill_of_the_king.png);
+    display: none;
 }
 
 #hud {
@@ -174,7 +177,6 @@
     background-repeat: no-repeat;
     width: 50px;
     height: 50px;
-    border: 2px solid red;
     background-image: url(../assets/images/enemys/spider_run.gif);
 }
 
@@ -183,7 +185,6 @@
     background-repeat: no-repeat;
     width: 100px;
     height: 100px;
-    border: 2px solid red;
     background-image: url(../assets/images/enemys/yoda.gif);
 }
 

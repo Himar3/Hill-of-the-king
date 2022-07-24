@@ -72,9 +72,9 @@ function Enemy() {
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {
                 clearInterval(self.autoTrackingInterval)
-                let cleanMonster = setTimeout(function() {
+                /*let cleanMonster = setTimeout(function() {
                     canvas.removeChild(self.sprite)
-                }, 2000)
+                }, 2000)*/
                 //self.randomMovement()
             }            
             if (!self.die && !self.collideHero(hero)) {

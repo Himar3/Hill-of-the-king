@@ -9,15 +9,17 @@ function KingGame() {
     this.score = document.getElementById('points')
     this.points = 0
     this.killCounter = 0
-    this.play = document.getElementById('start')
+    this.start = document.getElementById('start')
     this.gameOver = document.getElementById('gameover')
-    this.statsButton = document.getElementById('statsButton')
-    this.stats = document.getElementById('stats')
+    this.title = document.getElementById('title')
+    //this.statsButton = document.getElementById('statsButton')
+    //this.stats = document.getElementById('stats')
 
 
     //Métodos
     this.startGame = function() {
         this.mapKeys()
+        this.title.style.display = 'block'
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
         this.monster.autoTracking(this.hero)
@@ -125,18 +127,18 @@ function KingGame() {
 let game = new KingGame()
 let startButton = document.getElementById('startButton')
 let retryButton = document.getElementById('retryButton')
-/*startButton.addEventListener('click', function() {   
-    //this.play.setAttribute('display', "none")
-    //this.gameOver.setAttribute('display', "none")  
+
+this.startButton.addEventListener('click', function() {   
+    game.start.style.display = 'none'
     game.startGame()
-})*/
+})
+
 this.retryButton.addEventListener('click', function() {
-    game.gameOver.style.display = 'none'
-    //location.reload()
-    game.startGame()
+    //game.gameOver.style.display = 'none'
+    location.reload()
+    //game.startGame()
 })
 //HAY QUE HACER DESPARECER LA PANTALLA DE INICIO Y GAMEOVER AL PULSAR EL BOTON!!!
 //PROBAR A AÑADIR CLASE EN CSS UNA CON DISPLAY: BLOCK Y OTRA CON DIPLAY: NONE Y
 //CAMBIAR LA CLASE EN JS AL APRETAR EL BOTÓN
 
-game.startGame()
