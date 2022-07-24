@@ -10,8 +10,10 @@ function KingGame() {
     this.points = 0
     this.killCounter = 0
     this.play = document.getElementById('start')
+    this.gameOver = document.getElementById('gameover')
     this.statsButton = document.getElementById('statsButton')
     this.stats = document.getElementById('stats')
+
 
     //Métodos
     this.startGame = function() {
@@ -103,15 +105,14 @@ function KingGame() {
     }
 
     this.gameOverAnimation = function () {
-        this.gameOver = document.getElementById('gameover')
-        this.pos = - 2000
+        this.pos = - 1500
         self.gameOver.style.display = 'block'
         this.waitGameover = setInterval(function() {
             if (self.pos < 0) {
-                self.pos += 10
+                self.pos += 2
                 self.gameOver.style.top = self.pos + 'px'
             }
-        }, 50)
+        }, 5)
     }
 
 
@@ -123,7 +124,8 @@ let game = new KingGame()
 let startButton = document.getElementById('startButton')
 startButton.addEventListener('click', function() {   
     //this.play.setAttribute('display', "none")
+    //this.play.setAttribute('display', "none")  
     game.startGame()
 })
-//HAY QUE HACER DESPARECER LA PANTALLA DE INICIO!!!
+//HAY QUE HACER DESPARECER LA PANTALLA DE INICIO Y GAMEOVER AL PULSAR EL BOTON!!!
 

@@ -190,7 +190,7 @@ function Hero() {
                 self.posY -= 25
                 self.sprite.style.top = self.posY + 'px'
                 self.sprite.style.backgroundImage = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)"
-            }, 500)
+            }, 800)
         } 
     }
 }
