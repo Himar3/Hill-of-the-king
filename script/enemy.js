@@ -51,10 +51,10 @@ function Enemy() {
         bossEnemy.style.left = this.posX + 'px'
         canvas.appendChild(bossEnemy)
         this.sprite = document.getElementById('bossEnemy')
-        this.sprite.style.backgroundImage = 'url(assets/images/enemys/phantom_idle_left.gif'      
+        this.sprite.style.backgroundImage = 'url(assets/images/enemys/yoda.gif'      
     }
 
-    this.randomMovement = function() {
+    /*this.randomMovement = function() {
         this.pickPositiveOrNegative = [-5, 5]
         this.pickXorY = [self.posX, self.posY]
         this.randomMovementInterval = setInterval(function() {
@@ -64,13 +64,18 @@ function Enemy() {
             self.sprite.style.left = self.posX + 'px'
             self.sprite.style.top = self.posY + 'px'
         }, 1000)
-    }
+    }*/
+    //this.cleanMonster = setInterval(function(){
 
+    //},500)
     this.autoTracking = function(hero) {
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {
                 clearInterval(self.autoTrackingInterval)
-                self.randomMovement()
+                let cleanMonster = setTimeout(function() {
+                    canvas.removeChild(self.sprite)
+                }, 2000)
+                //self.randomMovement()
             }            
             if (!self.die && !self.collideHero(hero)) {
                 if (self.posX <= hero.posX) {

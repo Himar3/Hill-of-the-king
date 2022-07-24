@@ -23,6 +23,8 @@ function Hero() {
         hero.style.left = this.posX + 'px'
         canvas.appendChild(hero)
         this.sprite = document.getElementById('hero')
+        this.life = 100
+        this.die = false
     }
 
     this.levelUp = function() {
@@ -193,6 +195,10 @@ function Hero() {
                 self.sprite.style.backgroundImage = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)"
                 game.gameOverAnimation()
             }, 800)
+            let cleanCharacters = setTimeout(function() {
+                canvas.removeChild(self.sprite)
+                //canvas.removeChild(self.monster.sprite)
+            }, 2000)
         } 
     }
 }

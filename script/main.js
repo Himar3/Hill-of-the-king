@@ -105,6 +105,8 @@ function KingGame() {
     }
 
     this.gameOverAnimation = function () {
+        canvas.querySelectorAll('canvas > *').removeChild
+
         this.pos = - 1500
         self.gameOver.style.display = 'block'
         this.waitGameover = setInterval(function() {
@@ -122,9 +124,15 @@ function KingGame() {
 
 let game = new KingGame()
 let startButton = document.getElementById('startButton')
-startButton.addEventListener('click', function() {   
+let retryButton = document.getElementById('retryButton')
+/*startButton.addEventListener('click', function() {   
     //this.play.setAttribute('display', "none")
     //this.gameOver.setAttribute('display', "none")  
+    game.startGame()
+})*/
+this.retryButton.addEventListener('click', function() {
+    game.gameOver.style.display = 'none'
+    //location.reload()
     game.startGame()
 })
 //HAY QUE HACER DESPARECER LA PANTALLA DE INICIO Y GAMEOVER AL PULSAR EL BOTON!!!
