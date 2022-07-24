@@ -9,30 +9,44 @@ function KingGame() {
     this.score = document.getElementById('points')
     this.points = 0
     this.killCounter = 0
+    this.play = document.getElementById('start')
+    this.statsButton = document.getElementById('statsButton')
+    this.stats = document.getElementById('stats')
 
     //Métodos
     this.startGame = function() {
+        this.mapKeys()
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
         this.monster.autoTracking(this.hero)
+        
     }
+
+    statsButton.addEventListener('click', function() {
+        if (this.stats.style.visibility === hidden) {
+            this.stats.style.visibility === collapse
+        }
+        if (this.stats.style.visibility === collapse) {
+            this.stats.style.visibility === hidden
+        }
+    })
 
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
             case 'up':
-                this.monster.posY -= 100
+                this.monster.posY -= 50
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
             case 'down':
-                this.monster.posY += 100
+                this.monster.posY += 50
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
             case 'left':
-                this.monster.posX += 100
+                this.monster.posX -= 50
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
             case 'right':
-                this.monster.posX -= 100
+                this.monster.posX += 50
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
         }
@@ -62,7 +76,7 @@ function KingGame() {
                 } else {
                     self.monster.generateRandomEnemy(canvas)
                 }
-                setTimeout(self.monster.autoTracking(self.hero), 1500)           
+                self.waitCounter = setTimeout(self.monster.autoTracking(self.hero), 2000)           
             }
         }
     }
@@ -88,11 +102,28 @@ function KingGame() {
         })    
     }
 
+    this.gameOverAnimation = function () {
+        this.gameOver = document.getElementById('gameover')
+        this.pos = - 2000
+        self.gameOver.style.display = 'block'
+        this.waitGameover = setInterval(function() {
+            if (self.pos < 0) {
+                self.pos += 10
+                self.gameOver.style.top = self.pos + 'px'
+            }
+        }, 50)
+    }
+
+
 }
 
 
 
 let game = new KingGame()
-game.startGame()
-game.mapKeys()
+let startButton = document.getElementById('startButton')
+startButton.addEventListener('click', function() {   
+    //this.play.setAttribute('display', "none")
+    game.startGame()
+})
+//HAY QUE HACER DESPARECER LA PANTALLA DE INICIO!!!
 
