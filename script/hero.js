@@ -178,10 +178,11 @@ function Hero() {
             this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life0.png)"
         }
     }
+
     this.dieAnimation = function() {
         if (this.life <= 0) {
             this.die = true
-            game.gameOverAnimation()
+            
             //this.contadorEspera = setTimeout(self.animacionMuerteHeroe(hero), 500)
             
             this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)";
@@ -190,6 +191,7 @@ function Hero() {
                 self.posY -= 25
                 self.sprite.style.top = self.posY + 'px'
                 self.sprite.style.backgroundImage = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)"
+                game.gameOverAnimation()
             }, 800)
         } 
     }

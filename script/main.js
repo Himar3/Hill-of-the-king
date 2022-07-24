@@ -24,14 +24,14 @@ function KingGame() {
         
     }
 
-    statsButton.addEventListener('click', function() {
+    /*statsButton.addEventListener('click', function() {
         if (this.stats.style.visibility === hidden) {
             this.stats.style.visibility === collapse
         }
         if (this.stats.style.visibility === collapse) {
             this.stats.style.visibility === hidden
         }
-    })
+    })*/
 
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
@@ -123,9 +123,12 @@ function KingGame() {
 let game = new KingGame()
 let startButton = document.getElementById('startButton')
 startButton.addEventListener('click', function() {   
-    this.play.setAttribute('display', "none")
-    this.gameOver.setAttribute('display', "none")  
+    //this.play.setAttribute('display', "none")
+    //this.gameOver.setAttribute('display', "none")  
     game.startGame()
 })
 //HAY QUE HACER DESPARECER LA PANTALLA DE INICIO Y GAMEOVER AL PULSAR EL BOTON!!!
+//PROBAR A AÑADIR CLASE EN CSS UNA CON DISPLAY: BLOCK Y OTRA CON DIPLAY: NONE Y
+//CAMBIAR LA CLASE EN JS AL APRETAR EL BOTÓN
 
+game.startGame()

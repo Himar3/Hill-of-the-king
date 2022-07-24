@@ -51,7 +51,7 @@ function Enemy() {
         bossEnemy.style.left = this.posX + 'px'
         canvas.appendChild(bossEnemy)
         this.sprite = document.getElementById('bossEnemy')
-        //setTimeout(this.sprite.style.backgroundImage = url(assets/images/enemys/***/.gif), 1000)        
+        this.sprite.style.backgroundImage = 'url(assets/images/enemys/phantom_idle_left.gif'      
     }
 
     this.randomMovement = function() {
@@ -185,12 +185,5 @@ function Enemy() {
                 this.gameOver.style.display = 'block';
             } */        
         }
-
     }
-
-
-    
-
-    
-
 }
