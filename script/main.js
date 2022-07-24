@@ -123,8 +123,8 @@ function KingGame() {
 let game = new KingGame()
 let startButton = document.getElementById('startButton')
 startButton.addEventListener('click', function() {   
-    //this.play.setAttribute('display', "none")
-    //this.play.setAttribute('display', "none")  
+    this.play.setAttribute('display', "none")
+    this.gameOver.setAttribute('display', "none")  
     game.startGame()
 })
 //HAY QUE HACER DESPARECER LA PANTALLA DE INICIO Y GAMEOVER AL PULSAR EL BOTON!!!
