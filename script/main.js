@@ -14,16 +14,29 @@ function KingGame() {
     this.title = document.getElementById('title')
     //this.statsButton = document.getElementById('statsButton')
     //this.stats = document.getElementById('stats')
+    //musica
+    this.music = {
+        startScreenMusic: new Audio ('assets/music/music_pantalla_de_inicio.mp3'),
+        gamePlayMusic: new Audio ('assets/music/music_game_play.mp3'),
+        gameOverMusic: new Audio ('assets/music/music_game_over.mp3'),
+        soundDeath: new Audio ('assets/music/sound_death.mp3'),
+        soundDeathEnemy: new Audio ('assets/music/sound_death_enemy.mp3'),
+        soundHit: new Audio ('assets/music/sound_hit.mp3'),
+        soundAttack: new Audio ('assets/music/sound_attack_enemy.mp3'),
+        soundNoAttack: new Audio ('assets/music/sound_attack.wav'),
+    }
 
 
     //Métodos
     this.startGame = function() {
         this.mapKeys()
         this.title.style.display = 'block'
+        game.music.gamePlayMusic.play ()
+        game.music.gamePlayMusic.loop = true
+        game.music.gamePlayMusic.volume = 0.01
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
-        this.monster.autoTracking(this.hero)
-        
+        this.monster.autoTracking(this.hero)    
     }
 
     /*statsButton.addEventListener('click', function() {
@@ -64,9 +77,11 @@ function KingGame() {
         if (self.hero.posX + 70 >= self.monster.posX && self.hero.posX <= self.monster.posX + 50 
             && self.hero.posY + 70 >= self.monster.posY && self.hero.posY <= self.monster.posY + 50) {
             self.monster.life -= self.hero.strength
+            game.music.soundAttack.play ()
             this.knockBackToEnemy()
             self.monster.isDead()
             if (self.monster.die === true) {
+                game.music.soundDeathEnemy.play ()
                 self.points += 25
                 self.killCounter += 1
                 self.hero.experience += 25
@@ -107,8 +122,9 @@ function KingGame() {
     }
 
     this.gameOverAnimation = function () {
-        canvas.querySelectorAll('canvas > *').removeChild
-
+        //canvas.querySelectorAll('canvas > *').removeChild
+        game.music.gamePlayMusic.pause()
+        game.music.gameOverMusic.play()
         this.pos = - 1500
         self.gameOver.style.display = 'block'
         this.waitGameover = setInterval(function() {
@@ -116,7 +132,7 @@ function KingGame() {
                 self.pos += 2
                 self.gameOver.style.top = self.pos + 'px'
             }
-        }, 5)
+        }, 8)
     }
 
 

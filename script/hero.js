@@ -102,6 +102,7 @@ function Hero() {
     }
 
     this.attack = function() {
+        game.music.soundNoAttack.play()
         if (this.direction === 'down') {
             this.sprite.style.backgroundImage = "url(assets/images/hero_attack/hero_attack_down_72.gif)"   
         }
@@ -184,11 +185,9 @@ function Hero() {
     this.dieAnimation = function() {
         if (this.life <= 0) {
             this.die = true
-            
-            //this.contadorEspera = setTimeout(self.animacionMuerteHeroe(hero), 500)
-            
-            this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)";
-            
+            game.music.soundDeath.play()
+            //this.contadorEspera = setTimeout(self.animacionMuerteHeroe(hero), 500)           
+            this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)";           
             let contadorEspera = setTimeout(function() {
                 self.posY -= 25
                 self.sprite.style.top = self.posY + 'px'

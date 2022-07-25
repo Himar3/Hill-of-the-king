@@ -41,11 +41,11 @@ function Enemy() {
 
     this.generateBossEnemy = function(canvas) {
         this.die = false
-        this.life = 150
-        this.strength = 40
+        this.life = 130
+        this.strength = 25
         let bossEnemy = document.createElement('div')
         bossEnemy.setAttribute('id', 'bossEnemy')
-        this.posX = 250
+        this.posX = 430
         this.posY = 0
         bossEnemy.style.top = this.posY + 'px'
         bossEnemy.style.left = this.posX + 'px'
@@ -71,12 +71,9 @@ function Enemy() {
     this.autoTracking = function(hero) {
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {
-                clearInterval(self.autoTrackingInterval)
-                /*let cleanMonster = setTimeout(function() {
-                    canvas.removeChild(self.sprite)
-                }, 2000)*/
-                //self.randomMovement()
-            }            
+                self.posY += 10000
+                    self.sprite.style.top = self.posY + 'px'
+            }      
             if (!self.die && !self.collideHero(hero)) {
                 if (self.posX <= hero.posX) {
                     self.direction = 'right'
@@ -146,6 +143,7 @@ function Enemy() {
     this.damageToHero = function(hero) {
         if (this.collideHero(hero) === true) {
             hero.life -= self.strength - hero.defense
+            game.music.soundHit.play ()
             hero.lifeHud()
             if (this.direction === 'up') {
                 if (hero.posY > 20) {
