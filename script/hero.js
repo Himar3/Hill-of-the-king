@@ -13,6 +13,7 @@ function Hero() {
     this.direction = 'down'
     this.level = 1
     this.lvl = document.getElementById('level')
+    this.levelUp = document.getElementById('levelUp')
     this.experience = 0
     this.die = false
     this.gameOver = document.getElementById('gameover')
@@ -22,6 +23,19 @@ function Hero() {
     this.lvl.innerText = this.level
     this.atkStat.innerText = this.strength
     this.def.innerText = this.defense
+
+    this.levelUpAnimation = function() {
+        this.levelUp.style.display = 'block'
+        let flashing = setTimeout(function() {
+            self.levelUp.style.display = 'none'
+        }, 600)
+        let flashing2 = setTimeout(function() {
+            self.levelUp.style.display = 'block'
+        }, 300)
+        let flashing3 = setTimeout(function() {
+            self.levelUp.style.display = 'none'
+        }, 600)
+    }
 
     this.generateHero = function(canvas) {
         let hero = document.createElement("div")
@@ -36,6 +50,7 @@ function Hero() {
 
     this.levelUp = function() {
         if (this.experience > 100) {
+            this.levelUpAnimation()
             this.level += 1
             console.log(this.level)
             //this.sprite.style.backgroundImage = url()

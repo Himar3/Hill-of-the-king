@@ -148,6 +148,18 @@
     left: 310px;
 }
 
+#levelUp {
+    position: absolute;
+    width: 375px;
+    height: 125px;
+    top: 555px;
+    left: 65px;
+    z-index: 1;
+    background-position: center;
+    display: none;
+    background-image: url(../assets/images/hud/level_up.png);
+}
+
 #score {
     display: inline-block;
     font-family: fantasy;

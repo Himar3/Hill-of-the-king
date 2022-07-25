@@ -148,7 +148,7 @@ function KingGame() {
                 self.pos += 2
                 self.gameOver.style.top = self.pos + 'px'
             }
-        }, 8)
+        }, 5)
     }
 
 

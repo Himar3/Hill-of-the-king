@@ -28,31 +28,37 @@ function Enemy() {
 
     this.generateRandomEnemy = function(canvas) {
         this.die = false
-        this.life = 100
-        let randomEnemy = document.createElement('div')
-        randomEnemy.setAttribute('id', 'enemy')
-        this.posX = Math.floor(Math.random() * 50 + 400)
-        this.posY = Math.floor(Math.random() * 50 + 400)
-        randomEnemy.style.top = this.posY + 'px'
-        randomEnemy.style.left = this.posX + 'px'
-        canvas.appendChild(randomEnemy)
-        this.sprite = document.getElementById('enemy')
+        let waitSpawn = setTimeout(function() {
+            self.life = 100
+            let randomEnemy = document.createElement('div')
+            randomEnemy.setAttribute('id', 'enemy')
+            self.posX = Math.floor(Math.random() * 50 + 400)
+            self.posY = Math.floor(Math.random() * 50 + 400)
+            randomEnemy.style.top = self.posY + 'px'
+            randomEnemy.style.left = self.posX + 'px'
+            canvas.appendChild(randomEnemy)
+            self.sprite = document.getElementById('enemy')
+            self.autoTracking(hero)
+        }, 750)    
     }
 
     this.generateBossEnemy = function(canvas) {
         this.die = false
-        this.life = 130
-        this.strength = 25
-        let bossEnemy = document.createElement('div')
-        bossEnemy.setAttribute('id', 'bossEnemy')
-        this.posX = 430
-        this.posY = 0
-        bossEnemy.style.top = this.posY + 'px'
-        bossEnemy.style.left = this.posX + 'px'
-        canvas.appendChild(bossEnemy)
-        this.sprite = document.getElementById('bossEnemy')
-        this.sprite.style.backgroundImage = 'url(assets/images/enemys/yoda.gif' 
-        game.music.bossSpawn.play()    
+        let waitSpawn2 = setTimeout(function() {
+            self.life = 130
+            self.strength = 25
+            let bossEnemy = document.createElement('div')
+            bossEnemy.setAttribute('id', 'bossEnemy')
+            self.posX = 430
+            self.posY = 0
+            bossEnemy.style.top = self.posY + 'px'
+            bossEnemy.style.left = self.posX + 'px'
+            canvas.appendChild(bossEnemy)
+            self.sprite = document.getElementById('bossEnemy')
+            self.sprite.style.backgroundImage = 'url(assets/images/enemys/yoda.gif' 
+            game.music.bossSpawn.play()
+            self.autoTracking(hero)
+        }, 750)   
     }
 
     /*this.randomMovement = function() {
@@ -67,8 +73,8 @@ function Enemy() {
         }, 1000)
     }*/
     //this.cleanMonster = setInterval(function(){
-
     //},500)
+
     this.autoTracking = function(hero) {
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {
