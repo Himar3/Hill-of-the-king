@@ -77,30 +77,46 @@
     background-size: cover;
 }
 
-/*#stats {
+#stats {
     position: absolute;
-    width: 150px;
-    height: 300px;
-    border: 5px solid black;
+    top: 530px;
+    left: 30px;
+    width: 440px;
+    height: 183px;
     visibility: hidden;
-    background-color: beige;
-    visibility: hidden;
-    background-image: url();  
+    background-image: url(../assets/images/hud/hud_stats.png);  
 }
 
 #statsButton {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-image: url();
-}*/
+    top: 500px;
+    left: 225px;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid black;
+    border-radius: 30px;
+    background-image: url(../assets/images/hud/pixe_gear.png);
+}
+
+#statsButton:hover {
+    position: absolute;
+    top: 495x;
+    left: 222px;
+    width: 65px;
+    height: 65px;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid black;
+    border-radius: 45px;
+    background-image: url(../assets/images/hud/pixe_gear.png);
+}
 
 #score {
     display: inline-block;
     font-family: fantasy;
-    font-size: 30px;
+    font-size: 25px;
     color: black;
     position: absolute;
     width: 210px;
@@ -137,7 +153,7 @@
     width: 210px;
     height: 32px;
     top: 515px;
-    left: 255px;
+    left: 300px;
     background-image: url(../assets/images/hud/life100.png);
 }
 

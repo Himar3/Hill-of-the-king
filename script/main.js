@@ -12,8 +12,10 @@ function KingGame() {
     this.start = document.getElementById('start')
     this.gameOver = document.getElementById('gameover')
     this.title = document.getElementById('title')
-    //this.statsButton = document.getElementById('statsButton')
-    //this.stats = document.getElementById('stats')
+    this.statsButton = document.getElementById('statsButton')
+    this.stats = document.getElementById('stats')
+
+
     //musica
     this.music = {
         startScreenMusic: new Audio ('assets/music/music_pantalla_de_inicio.mp3'),
@@ -34,20 +36,20 @@ function KingGame() {
         this.title.style.display = 'block'
         game.music.gamePlayMusic.play ()
         game.music.gamePlayMusic.loop = true
-        game.music.gamePlayMusic.volume = 0.01
+        game.music.gamePlayMusic.volume = 0.02
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
         this.monster.autoTracking(this.hero)    
     }
-
-    /*statsButton.addEventListener('click', function() {
-        if (this.stats.style.visibility === hidden) {
-            this.stats.style.visibility === collapse
+    //no funciona
+    this.statsButton.addEventListener('click', function() {
+        if (self.stats.style.visibility === 'hidden') {
+            self.stats.style.visibility = 'collapse'
         }
-        if (this.stats.style.visibility === collapse) {
-            this.stats.style.visibility === hidden
+        if (self.stats.style.visibility === 'collapse') {
+            self.stats.style.visibility = 'hidden'
         }
-    })*/
+    })
 
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
@@ -88,7 +90,7 @@ function KingGame() {
                 }
                 self.points += 25
                 self.killCounter += 1
-                self.hero.experience += 25
+                self.hero.experience += 35
                 self.hero.levelUp()
                 self.score.innerText = self.points
                 canvas.removeChild(self.monster.sprite)
