@@ -31,8 +31,8 @@ function Enemy() {
         this.life = 100
         let randomEnemy = document.createElement('div')
         randomEnemy.setAttribute('id', 'enemy')
-        this.posX = Math.floor(Math.random() * 250 + 250)
-        this.posY = Math.floor(Math.random() * 250 + 250)
+        this.posX = Math.floor(Math.random() * 50 + 400)
+        this.posY = Math.floor(Math.random() * 50 + 400)
         randomEnemy.style.top = this.posY + 'px'
         randomEnemy.style.left = this.posX + 'px'
         canvas.appendChild(randomEnemy)
@@ -51,7 +51,8 @@ function Enemy() {
         bossEnemy.style.left = this.posX + 'px'
         canvas.appendChild(bossEnemy)
         this.sprite = document.getElementById('bossEnemy')
-        this.sprite.style.backgroundImage = 'url(assets/images/enemys/yoda.gif'      
+        this.sprite.style.backgroundImage = 'url(assets/images/enemys/yoda.gif' 
+        game.music.bossSpawn.play()    
     }
 
     /*this.randomMovement = function() {
@@ -77,29 +78,29 @@ function Enemy() {
             if (!self.die && !self.collideHero(hero)) {
                 if (self.posX <= hero.posX) {
                     self.direction = 'right'
-                    self.posX += 8
+                    self.posX += 9
                     self.sprite.style.left = self.posX + 'px'
                 }
                 if (self.posX >= hero.posX + 40) {
                     self.direction = 'left'
-                    self.posX -= 8
+                    self.posX -= 9
                     self.sprite.style.left = self.posX + 'px'
                 }
                 if (self.posY + 30 <= hero.posY) {
                     self.direction = 'down'
-                    self.posY += 8
+                    self.posY += 9
                     self.sprite.style.top = self.posY + 'px'
                 }
                 if (self.posY >= hero.posY + 40) {
                     self.direction = 'up'
-                    self.posY -= 8
+                    self.posY -= 9
                     self.sprite.style.top = self.posY + 'px'
                 }
                 }
             if (!self.die && self.collideHero(hero)) {
                 self.damageToHero(hero)
             }
-        }, 200);
+        }, 400);
         
     }
 
@@ -143,7 +144,7 @@ function Enemy() {
     this.damageToHero = function(hero) {
         if (this.collideHero(hero) === true) {
             hero.life -= self.strength - hero.defense
-            game.music.soundHit.play ()
+            game.music.soundHit.play()
             hero.lifeHud()
             if (this.direction === 'up') {
                 if (hero.posY > 20) {

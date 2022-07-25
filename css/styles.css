@@ -124,10 +124,10 @@
 
 #points {
     font-family: fantasy;
-    font-size: 23px;
-    font-weight: 100;
+    font-size: 21px;
+    font-weight: 90;
     position: absolute;
-    top: 6%;
+    top: 5%;
     left: 60%;
 }
 

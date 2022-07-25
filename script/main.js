@@ -19,11 +19,12 @@ function KingGame() {
         startScreenMusic: new Audio ('assets/music/music_pantalla_de_inicio.mp3'),
         gamePlayMusic: new Audio ('assets/music/music_game_play.mp3'),
         gameOverMusic: new Audio ('assets/music/music_game_over.mp3'),
-        soundDeath: new Audio ('assets/music/sound_death.mp3'),
+        soundDeath: new Audio ('assets/music/hero_diying.wav'),
         soundDeathEnemy: new Audio ('assets/music/sound_death_enemy.mp3'),
         soundHit: new Audio ('assets/music/sound_hit.mp3'),
         soundAttack: new Audio ('assets/music/sound_attack_enemy.mp3'),
         soundNoAttack: new Audio ('assets/music/sound_attack.wav'),
+        bossSpawn: new Audio ('assets/music/boss_spawn.wav')
     }
 
 
@@ -82,6 +83,9 @@ function KingGame() {
             self.monster.isDead()
             if (self.monster.die === true) {
                 game.music.soundDeathEnemy.play ()
+                if (this.killCounter >= 3) {
+                    self.points += 75
+                }
                 self.points += 25
                 self.killCounter += 1
                 self.hero.experience += 25
@@ -125,7 +129,7 @@ function KingGame() {
         //canvas.querySelectorAll('canvas > *').removeChild
         game.music.gamePlayMusic.pause()
         game.music.gameOverMusic.play()
-        this.pos = - 1500
+        this.pos = - 1200
         self.gameOver.style.display = 'block'
         this.waitGameover = setInterval(function() {
             if (self.pos < 0) {
@@ -154,7 +158,5 @@ this.retryButton.addEventListener('click', function() {
     location.reload()
     //game.startGame()
 })
-//HAY QUE HACER DESPARECER LA PANTALLA DE INICIO Y GAMEOVER AL PULSAR EL BOTON!!!
-//PROBAR A AÑADIR CLASE EN CSS UNA CON DISPLAY: BLOCK Y OTRA CON DIPLAY: NONE Y
-//CAMBIAR LA CLASE EN JS AL APRETAR EL BOTÓN
+
 
