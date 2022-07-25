@@ -5,17 +5,24 @@ function Hero() {
     this.posX = 10 
     this.posY = 220
     this.strength = 25
+    this.atkStat = document.getElementById('strength')
     this.defense = 10
+    this.def = document.getElementById('defense')
     this.life = 100
     this.lifeAnimation = document.getElementById('life')
     this.direction = 'down'
     this.level = 1
+    this.lvl = document.getElementById('level')
     this.experience = 0
     this.die = false
     this.gameOver = document.getElementById('gameover')
 
     
     //Métodos
+    this.lvl.innerText = this.level
+    this.atkStat.innerText = this.strength
+    this.def.innerText = this.defense
+
     this.generateHero = function(canvas) {
         let hero = document.createElement("div")
         hero.setAttribute('id', 'hero')
@@ -30,9 +37,13 @@ function Hero() {
     this.levelUp = function() {
         if (this.experience > 100) {
             this.level += 1
+            console.log(this.level)
             //this.sprite.style.backgroundImage = url()
             this.experience = 0
             this.growByLevel()
+            this.lvl.innerText = this.level
+            this.atkStat.innerText = this.strength
+            this.def.innerText = this.defense
         }
         //añadir ifs por cada seccion de la barra de exp para meter el png correspondiente
     }
@@ -58,7 +69,7 @@ function Hero() {
             this.defense += 2
             this.life = 100
         }
-        if (this.level === 5) {
+        if (this.level === 6) {
             this.strength += 5
             this.defense += 2
             this.life = 100

@@ -9,7 +9,9 @@ function KingGame() {
     this.score = document.getElementById('points')
     this.finalScore = document.getElementById('finalPoints')
     this.points = 0
+    this.bossCounter = 0
     this.killCounter = 0
+    this.kills = document.getElementById('killCounter')
     this.start = document.getElementById('start')
     this.gameOver = document.getElementById('gameover')
     this.title = document.getElementById('title')
@@ -30,6 +32,7 @@ function KingGame() {
         bossSpawn: new Audio ('assets/music/boss_spawn.wav')
     }
 
+    self.kills.innerText = self.killCounter
 
     //Métodos
     this.startGame = function() {
@@ -93,15 +96,17 @@ function KingGame() {
                     self.points += 75
                 }
                 self.points += 25
+                self.bossCounter +=1
                 self.killCounter += 1
+                self.kills.innerText = self.killCounter
                 self.hero.experience += 35
                 self.hero.levelUp()
                 self.finalScore.innerText = self.points
                 self.score.innerText = self.points
                 canvas.removeChild(self.monster.sprite)
                 clearInterval(this.autoTrackingInterval)
-                if (self.killCounter >= 3){
-                    self.killCounter = 0
+                if (self.bossCounter >= 3){
+                    self.bossCounter = 0
                     self.monster.generateBossEnemy(canvas)
                 } else {
                     self.monster.generateRandomEnemy(canvas)

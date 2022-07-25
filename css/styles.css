@@ -60,6 +60,7 @@
 
 #stats {
     position: absolute;
+    display: inline-block;
     top: 530px;
     left: 30px;
     width: 440px;
@@ -96,26 +97,62 @@
 }
 
 #level {
-
+    font-family: fantasy;
+    font-size: 25px;
+    font-weight: 90;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: rgb(27, 27, 27);
+    position: absolute;
+    top: 95px;
+    left: 75px;
 }
 
 #strength {
-
+    font-family: fantasy;
+    font-size: 25px;
+    font-weight: 90;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: rgb(27, 27, 27);
+    position: absolute;
+    top: 95px;
+    left: 150px;
 }
 
 #defense {
-
+    font-family: fantasy;
+    font-size: 25px;
+    font-weight: 90;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: rgb(27, 27, 27);
+    position: absolute;
+    top: 95px;
+    left: 234px;
 }
 
 #killCounter {
-    
+    font-family: fantasy;
+    font-size: 25px;
+    font-weight: 90;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: rgb(27, 27, 27);
+    position: absolute;
+    top: 95px;
+    left: 310px;
 }
 
 #score {
     display: inline-block;
     font-family: fantasy;
     font-size: 25px;
-    color: black;
+    color: rgb(27, 27, 27);
     position: absolute;
     width: 210px;
     height: 32px;
@@ -130,7 +167,7 @@
     font-size: 21px;
     font-weight: 90;
     position: absolute;
-    top: 13%;
+    top: 10%;
     left: 60%;
 }
 
@@ -228,7 +265,7 @@
     display: inline-block;
     font-family: fantasy;
     font-size: 30px;
-    color: black;
+    color: rgb(27, 27, 27);
     position: absolute;
     width: 210px;
     height: 32px;
@@ -241,6 +278,6 @@
     font-size: 21px;
     font-weight: 90;
     position: absolute;
-    top: 4%;
+    top: 12%;
     left: 60%;
 }
