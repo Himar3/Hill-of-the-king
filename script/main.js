@@ -7,6 +7,7 @@ function KingGame() {
     this.autoTrackingInterval
     this.gameOverInterval
     this.score = document.getElementById('points')
+    this.finalScore = document.getElementById('finalPoints')
     this.points = 0
     this.killCounter = 0
     this.start = document.getElementById('start')
@@ -43,10 +44,13 @@ function KingGame() {
     }
     //no funciona
     this.statsButton.addEventListener('click', function() {
-        if (self.stats.style.visibility === 'hidden') {
-            self.stats.style.visibility = 'collapse'
+        console.log(self.stats.style.visibility)
+        if (self.stats.style.visibility == 'hidden') {
+            console.log(self.stats.style.visibility)
+            self.stats.style.visibility = 'visible'
         }
-        if (self.stats.style.visibility === 'collapse') {
+        if (self.stats.style.visibility == 'visible') {
+            console.log(self.stats.style.visibility)
             self.stats.style.visibility = 'hidden'
         }
     })
@@ -92,6 +96,7 @@ function KingGame() {
                 self.killCounter += 1
                 self.hero.experience += 35
                 self.hero.levelUp()
+                self.finalScore.innerText = self.points
                 self.score.innerText = self.points
                 canvas.removeChild(self.monster.sprite)
                 clearInterval(this.autoTrackingInterval)
