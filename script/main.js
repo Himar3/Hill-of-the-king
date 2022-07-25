@@ -4,6 +4,7 @@ function KingGame() {
     this.canvas = document.getElementById("canvas")
     this.hero = new Hero()
     this.monster = new Enemy()
+    this.potion = new Item()
     this.autoTrackingInterval
     this.gameOverInterval
     this.score = document.getElementById('points')
@@ -15,8 +16,8 @@ function KingGame() {
     this.start = document.getElementById('start')
     this.gameOver = document.getElementById('gameover')
     this.title = document.getElementById('title')
-    this.statsButton = document.getElementById('statsButton')
-    this.stats = document.getElementById('stats')
+    //this.statsButton = document.getElementById('statsButton')
+    
 
 
     //musica
@@ -29,35 +30,26 @@ function KingGame() {
         soundHit: new Audio ('assets/music/sound_hit.mp3'),
         soundAttack: new Audio ('assets/music/sound_attack_enemy.mp3'),
         soundNoAttack: new Audio ('assets/music/sound_attack.wav'),
-        bossSpawn: new Audio ('assets/music/boss_spawn.wav')
+        bossSpawn: new Audio ('assets/music/boss_spawn.wav'),
+        drinkPot: new Audio ('assets/music/drink_potion.wav')
     }
 
     self.kills.innerText = self.killCounter
 
     //Métodos
     this.startGame = function() {
-        this.mapKeys()
         this.title.style.display = 'block'
         game.music.gamePlayMusic.play ()
         game.music.gamePlayMusic.loop = true
         game.music.gamePlayMusic.volume = 0.02
+        this.mapKeys()
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
-        this.monster.autoTracking(this.hero)    
+        this.monster.autoTracking(this.hero)
+        this.potion.generateRedPotion(this.canvas)  
     }
     //no funciona
-    this.statsButton.addEventListener('click', function() {
-        console.log(self.stats.style.visibility)
-        if (self.stats.style.visibility == 'hidden') {
-            console.log(self.stats.style.visibility)
-            self.stats.style.visibility = 'visible'
-        }
-        if (self.stats.style.visibility == 'visible') {
-            console.log(self.stats.style.visibility)
-            self.stats.style.visibility = 'hidden'
-        }
-    })
-
+    
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
             case 'up':
@@ -159,16 +151,28 @@ function KingGame() {
 let game = new KingGame()
 let startButton = document.getElementById('startButton')
 let retryButton = document.getElementById('retryButton')
+let statsButton = document.getElementById('statsButton')
+let stats = document.getElementById('stats')
+let statsHidden = true 
 
-this.startButton.addEventListener('click', function() {   
+startButton.addEventListener('click', function() {   
     game.start.style.display = 'none'
     game.startGame()
 })
 
-this.retryButton.addEventListener('click', function() {
+retryButton.addEventListener('click', function() {
     //game.gameOver.style.display = 'none'
     location.reload()
     //game.startGame()
 })
 
-
+statsButton.addEventListener('click', function() {
+    if (statsHidden) {
+        statsHidden = false
+        stats.classList.add('showStats')
+    } else {
+        statsHidden = true
+        stats.classList.remove('showStats')
+    }
+    
+})

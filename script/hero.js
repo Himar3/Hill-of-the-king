@@ -13,7 +13,7 @@ function Hero() {
     this.direction = 'down'
     this.level = 1
     this.lvl = document.getElementById('level')
-    this.levelUp = document.getElementById('levelUp')
+    this.levelUpText = document.getElementById('levelUp')
     this.experience = 0
     this.die = false
     this.gameOver = document.getElementById('gameover')
@@ -25,15 +25,16 @@ function Hero() {
     this.def.innerText = this.defense
 
     this.levelUpAnimation = function() {
-        this.levelUp.style.display = 'block'
+        console.log(self.levelUpText)
+        self.levelUpText.style.display = 'block'
         let flashing = setTimeout(function() {
-            self.levelUp.style.display = 'none'
+            self.levelUpText.style.display = 'none'
         }, 600)
         let flashing2 = setTimeout(function() {
-            self.levelUp.style.display = 'block'
+            self.levelUpText.style.display = 'block'
         }, 300)
         let flashing3 = setTimeout(function() {
-            self.levelUp.style.display = 'none'
+            self.levelUpText.style.display = 'none'
         }, 600)
     }
 

@@ -60,15 +60,17 @@
 
 #stats {
     position: absolute;
-    display: inline-block;
+    display: none;
     top: 530px;
     left: 30px;
     width: 440px;
     height: 183px;
-    visibility: visible;
     background-image: url(../assets/images/hud/hud_stats.png);  
 }
 
+.showStats {
+    display: inline-block !important;
+}
 
 #statsButton {
     position: absolute;
@@ -238,6 +240,35 @@
     width: 70px;
     height: 70px;
     background-image: url(../assets/images/enemys/yoda.gif);
+}
+
+#redPotion {
+    background-image: url(../assets/images/hud/redPot.png);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 245;
+    left: 245;
+    width: 25px;
+    height: 25px;
+}
+
+#bluePotion {
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}
+
+#yellowPotion {
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 25px;
+    height: 25px;
 }
 
 #gameover {

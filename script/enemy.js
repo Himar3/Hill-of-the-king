@@ -7,7 +7,7 @@ function Enemy() {
     this.life = 100
     this.direction = 'down'
     this.die = false
-    this.autoTrackingInterval
+    this.autoTrackingInterval = null
     this.contadorEspera
     this.randomMovementInterval
     
@@ -76,8 +76,12 @@ function Enemy() {
     //},500)
 
     this.autoTracking = function(hero) {
+        if (this.autoTrackingInterval !== null) {
+            clearInterval(this.autoTrackingInterval)
+        }
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {
+                clearInterval(this.autoTrackingInterval)
                 self.posY += 10000
                     self.sprite.style.top = self.posY + 'px'
             }      
@@ -106,7 +110,7 @@ function Enemy() {
             if (!self.die && self.collideHero(hero)) {
                 self.damageToHero(hero)
             }
-        }, 400);
+        }, 500);
         
     }
 
@@ -180,20 +184,7 @@ function Enemy() {
                     hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_left_72.gif)"
                 }
             }
-            //no se como llamar a la funcion. direction undefined
-            //hero.knockbackToHero()
-            hero.dieAnimation()
-            /*if (hero.life <= 0) {
-                hero.die = true
-                //this.contadorEspera = setTimeout(self.animacionMuerteHeroe(hero), 500)
-                this.contadorEspera = setTimeout(function(hero) {
-                    this.hero.posY -= 25
-                    this.hero.sprite.style.top = this.posY + 'px'
-                    this.hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)"
-                }, 500)
-                hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)";
-                this.gameOver.style.display = 'block';
-            } */        
+            hero.dieAnimation()    
         }
     }
 }
