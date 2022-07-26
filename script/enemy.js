@@ -8,7 +8,6 @@ function Enemy() {
     this.direction = 'down'
     this.die = false
     this.autoTrackingInterval = null
-    this.contadorEspera
     this.randomMovementInterval
     
 
@@ -95,8 +94,7 @@ function Enemy() {
             if (!self.die && self.collideHero(hero)) {
                 self.damageToHero(hero)
             }
-        }, 500);
-        
+        }, 500);       
     }
 
     this.collideHero = function(hero) {

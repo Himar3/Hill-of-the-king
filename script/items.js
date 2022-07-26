@@ -42,7 +42,6 @@ function Item() {
             this.posY >= hero.posY && this.posY + 25 <= hero.posY + 60) { 
             this.redPotion(hero)
             game.music.drinkPot.play()
-            console.log(this.spriteRed)
             canvas.removeChild(this.spriteRed)
             this.spriteRed = null
         }
