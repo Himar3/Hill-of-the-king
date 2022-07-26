@@ -15,7 +15,6 @@ function KingGame() {
     this.start = document.getElementById('start')
     this.gameOver = document.getElementById('gameover')
     this.title = document.getElementById('title')
-    //this.statsButton = document.getElementById('statsButton')
     
 
 
@@ -47,7 +46,6 @@ function KingGame() {
         this.monster.autoTracking(this.hero)
         this.potion.generateRedPotion(this.canvas)  
     }
-    //no funciona
     
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
@@ -74,7 +72,6 @@ function KingGame() {
         let iddleSprite = self.hero.sprite.style.backgroundImage
         self.hero.attack()
         setTimeout(self.hero.stopAtk, 500, iddleSprite) 
-        //ajustar el tamaño del div del enemigo en la función según tamaño final
         if (self.hero.posX + 70 >= self.monster.posX && self.hero.posX <= self.monster.posX + 50 
             && self.hero.posY + 70 >= self.monster.posY && self.hero.posY <= self.monster.posY + 50) {
             self.monster.life -= self.hero.strength
@@ -128,15 +125,16 @@ function KingGame() {
     }
 
     this.gameOverAnimation = function () {
-        //canvas.querySelectorAll('canvas > *').removeChild
         game.music.gamePlayMusic.pause()
         game.music.gameOverMusic.play()
-        this.pos = - 1200
+        let pos = -700
         self.gameOver.style.display = 'block'
-        this.waitGameover = setInterval(function() {
-            if (self.pos < 0) {
-                self.pos += 2
-                self.gameOver.style.top = self.pos + 'px'
+        this.gameOverInterval = setInterval(function() {
+            if (pos < 168) {
+                pos += 2
+                self.gameOver.style.top = pos + 'px'
+            } else {
+                clearInterval(self.gameOverInterval)
             }
         }, 5)
     }
@@ -159,9 +157,7 @@ startButton.addEventListener('click', function() {
 })
 
 retryButton.addEventListener('click', function() {
-    //game.gameOver.style.display = 'none'
     location.reload()
-    //game.startGame()
 })
 
 statsButton.addEventListener('click', function() {

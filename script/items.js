@@ -4,9 +4,6 @@ function Item() {
     this.spriteRed = null
     this.posX
     this.posY
-    //this.red = this.redPotion()
-    //this.blue = this.bluePotion()
-    //this.yellow = this.yellowPotion()
 
 
 
@@ -15,15 +12,14 @@ function Item() {
         hero.lifeHud()
     }
 
-    this.bluePotion =  function(hero) {
-        hero.defense += 1 
-    }
+    //future implementation
+    // this.bluePotion =  function(hero) {
+    //     hero.defense += 1 
+    // }
 
-    this.yellowPotion = function(hero) {
-        hero.points += 100
-    }
-
-    //this.dispensary = [red, blue, yellow]
+    // this.yellowPotion = function(hero) {
+    //     hero.points += 100
+    // }
 
     this.generateRedPotion = function(canvas) {
         this.timerIdGeneratePotion = setInterval(function() {
@@ -51,7 +47,4 @@ function Item() {
             this.spriteRed = null
         }
     }
-
-    
-
 }

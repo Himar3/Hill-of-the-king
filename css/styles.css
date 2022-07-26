@@ -221,7 +221,6 @@
     width: 72px;
     height: 72px;
     background-position:center;
-    /*border: 2px solid rgb(9, 255, 0);*/
     background-image: url(../assets/images/hero_iddle/hero_idle_down_72.gif);    
 }
 
@@ -273,8 +272,8 @@
 #gameover {
     position: absolute;
     background-repeat: no-repeat;
-    z-index: 1;
-    margin: 168px auto;
+    z-index: 99;
+    margin: 0 auto;
     background-size: cover;
     background-position:center;
     width: 700px;

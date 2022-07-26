@@ -61,25 +61,9 @@ function Enemy() {
         }, 750)   
     }
 
-    /*this.randomMovement = function() {
-        this.pickPositiveOrNegative = [-5, 5]
-        this.pickXorY = [self.posX, self.posY]
-        this.randomMovementInterval = setInterval(function() {
-            self.pickXorY[Math.floor(Math.random() * 2)] += self.pickPositiveOrNegative[Math.floor(Math.random() * 2)]
-            console.log(self.pickXorY[Math.floor(Math.random() * 2)])
-            console.log(self.pickPositiveOrNegative[Math.floor(Math.random() * 2)])
-            self.sprite.style.left = self.posX + 'px'
-            self.sprite.style.top = self.posY + 'px'
-        }, 1000)
-    }*/
-    //this.cleanMonster = setInterval(function(){
-    //},500)
+    
 
     this.autoTracking = function(hero) {
-        console.log(this.autoTrackingInterval)
-        // if (this.autoTrackingInterval !== null) {
-        //     clearInterval(this.autoTrackingInterval)
-        // }
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {
                 clearInterval(this.autoTrackingInterval)
@@ -130,27 +114,7 @@ function Enemy() {
                 collide = true
                 return collide
         }
-    }   
-
-    /*this.knockbackToHero = function (hero) {
-        if (this.direction === 'up') {
-            hero.posY -= 60
-            hero.sprite.style.top = hero.posY + 'px'
-        }
-        if (this.direction === 'down') {
-            hero.posY += 60
-            hero.sprite.style.top = hero.posY + 'px'
-        }
-        if (this.direction === 'left') {
-            hero.posX -= 60
-            hero.sprite.style.left = hero.posX + 'px'
-        }
-        if (this.direction === 'right') {
-            hero.posX += 60
-            hero.sprite.style.left = hero.posX + 'px'
-        }
-
-    }*/
+    }  
 
     this.damageToHero = function(hero) {
         if (this.collideHero(hero) === true) {

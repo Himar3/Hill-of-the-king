@@ -53,15 +53,12 @@ function Hero() {
         if (this.experience > 100) {
             this.levelUpAnimation()
             this.level += 1
-            console.log(this.level)
-            //this.sprite.style.backgroundImage = url()
             this.experience = 0
             this.growByLevel()
             this.lvl.innerText = this.level
             this.atkStat.innerText = this.strength
             this.def.innerText = this.defense
         }
-        //añadir ifs por cada seccion de la barra de exp para meter el png correspondiente
     }
 
     this.growByLevel = function() {
@@ -148,31 +145,6 @@ function Hero() {
         self.sprite.style.backgroundImage = iddleSprite
     }
 
-    /*this.knockbackToHero = function (monster) {
-        switch(monster.direction) {
-            case 'up':
-                this.posY -= 60
-                this.sprite.style.top = this.posY + 'px'
-                this.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_down.gif"
-                break
-            case 'down':
-                this.posY += 60
-                this.sprite.style.top = this.posY + 'px'
-                this.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_up.gif"
-                break
-            case 'left':
-                this.posX += 60
-                this.sprite.style.left = this.posX + 'px'
-                this.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_right.gif"
-                break
-            case 'right':
-                this.posX -= 60
-                this.sprite.style.left = this.posX + 'px'
-                break
-        }
-    }*/
-
-
     this.lifeHud = function() {
         if (this.life > 90) {
             this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life100.png)"
@@ -212,8 +184,7 @@ function Hero() {
     this.dieAnimation = function() {
         if (this.life <= 0) {
             this.die = true
-            game.music.soundDeath.play()
-            //this.contadorEspera = setTimeout(self.animacionMuerteHeroe(hero), 500)           
+            game.music.soundDeath.play()          
             this.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_death.gif)";           
             let contadorEspera = setTimeout(function() {
                 self.posY -= 25
@@ -221,10 +192,6 @@ function Hero() {
                 self.sprite.style.backgroundImage = "url(assets/images/hero_iddle/TornadoLoop_96x96.gif)"
                 game.gameOverAnimation()
             }, 800)
-            /*let cleanCharacters = setTimeout(function() {
-                canvas.removeChild(self.sprite)
-                //canvas.removeChild(self.monster.sprite)
-            }, 2000)*/
         } 
     }
 }
