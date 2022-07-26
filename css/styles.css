@@ -222,8 +222,7 @@
     height: 72px;
     background-position:center;
     /*border: 2px solid rgb(9, 255, 0);*/
-    background-image: url(../assets/images/hero_iddle/hero_idle_down_72.gif);
-    
+    background-image: url(../assets/images/hero_iddle/hero_idle_down_72.gif);    
 }
 
 #enemy {

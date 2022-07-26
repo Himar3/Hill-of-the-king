@@ -76,9 +76,10 @@ function Enemy() {
     //},500)
 
     this.autoTracking = function(hero) {
-        if (this.autoTrackingInterval !== null) {
-            clearInterval(this.autoTrackingInterval)
-        }
+        console.log(this.autoTrackingInterval)
+        // if (this.autoTrackingInterval !== null) {
+        //     clearInterval(this.autoTrackingInterval)
+        // }
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {
                 clearInterval(this.autoTrackingInterval)

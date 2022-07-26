@@ -5,7 +5,6 @@ function KingGame() {
     this.hero = new Hero()
     this.monster = new Enemy()
     this.potion = new Item()
-    this.autoTrackingInterval
     this.gameOverInterval
     this.score = document.getElementById('points')
     this.finalScore = document.getElementById('finalPoints')
@@ -96,14 +95,12 @@ function KingGame() {
                 self.finalScore.innerText = self.points
                 self.score.innerText = self.points
                 canvas.removeChild(self.monster.sprite)
-                clearInterval(this.autoTrackingInterval)
                 if (self.bossCounter >= 3){
                     self.bossCounter = 0
                     self.monster.generateBossEnemy(canvas)
                 } else {
                     self.monster.generateRandomEnemy(canvas)
-                }
-                self.waitCounter = setTimeout(self.monster.autoTracking(self.hero), 2000)           
+                }           
             }
         }
     }
@@ -126,6 +123,7 @@ function KingGame() {
             if (e.key === ' ' || e.key === '+') {
                 self.attack()
             }
+            self.potion.drinkPotion(self.hero, self.canvas)
         })    
     }
 

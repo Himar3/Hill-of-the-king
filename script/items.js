@@ -12,6 +12,7 @@ function Item() {
 
     this.redPotion = function(hero) {
         hero.life = 100
+        hero.lifeHud()
     }
 
     this.bluePotion =  function(hero) {
@@ -31,24 +32,26 @@ function Item() {
             }
             self.spriteRed = document.createElement('div')
             self.spriteRed.setAttribute('id', 'redPotion')
-            self.posX = Math.floor(Math.random() * 490)
-            self.posY = Math.floor(Math.random() * 490)
-        //error al leer style
-            self.spriteRed.style.top = self.posX + 'px'
-            self.spriteRed.style.left = self.posY + 'px'
+            self.posX = Math.floor(Math.random() * 460)
+            self.posY = Math.floor(Math.random() * 460)
+            self.spriteRed.style.top = self.posY + 'px'
+            self.spriteRed.style.left = self.posX + 'px'
             console.log(self.spriteRed)
             canvas.appendChild(self.spriteRed)
         }, 10000)
     }
 
-    this.drinkPotion = function(hero) {
-        if (this.posX <= hero.posX + 60 && this.posX >= hero.posX 
-            && this.posY <= hero.posY + 60 && this.posY >= hero.posY 
-            &&this.posX + 60 <= hero.posX + 60 && this.posY + 60 <= hero.posY + 60) {
-                this.redPotion(hero)
-                game.music.drinkPot.play()
-                canvas.removeChild(this.spriteRed)
+    this.drinkPotion = function(hero, canvas) {
+        if (this.posX >= hero.posX && this.posX + 25 <= hero.posX + 60 &&
+            this.posY >= hero.posY && this.posY + 25 <= hero.posY + 60) { 
+            this.redPotion(hero)
+            game.music.drinkPot.play()
+            console.log(this.spriteRed)
+            canvas.removeChild(this.spriteRed)
+            this.spriteRed = null
         }
     }
+
+    
 
 }
