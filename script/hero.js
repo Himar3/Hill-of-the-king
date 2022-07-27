@@ -25,7 +25,6 @@ function Hero() {
     this.def.innerText = this.defense
 
     this.levelUpAnimation = function() {
-        console.log(self.levelUpText)
         self.levelUpText.style.display = 'block'
         let flashing = setTimeout(function() {
             self.levelUpText.style.display = 'none'

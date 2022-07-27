@@ -112,7 +112,6 @@ function KingGame() {
 
     this.mapKeys = function() {
         document.addEventListener('keydown', function(e) {
-            console.log(e.key)
             if (e.key === 'ArrowDown' || e.key === 's') {
                 self.hero.moveDown()
             }
@@ -135,7 +134,7 @@ function KingGame() {
     this.gameOverAnimation = function () {
         game.music.gamePlayMusic.pause()
         game.music.gameOverMusic.play()
-        let pos = -700
+        let pos = -1000
         self.gameOver.style.display = 'block'
         this.gameOverInterval = setInterval(function() {
             if (pos < 168) {

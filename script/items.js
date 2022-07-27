@@ -32,7 +32,6 @@ function Item() {
             self.posY = Math.floor(Math.random() * 460)
             self.spriteRed.style.top = self.posY + 'px'
             self.spriteRed.style.left = self.posX + 'px'
-            console.log(self.spriteRed)
             canvas.appendChild(self.spriteRed)
         }, 10000)
     }
@@ -42,7 +41,6 @@ function Item() {
             this.posY >= hero.posY && this.posY + 25 <= hero.posY + 60) { 
             this.redPotion(hero)
             game.music.drinkPot.play()
-            console.log(this.spriteRed)
             canvas.removeChild(this.spriteRed)
             this.spriteRed = null
         }
