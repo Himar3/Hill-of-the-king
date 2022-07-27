@@ -32,7 +32,6 @@ function Item() {
             self.posY = Math.floor(Math.random() * 460)
             self.spriteRed.style.top = self.posY + 'px'
             self.spriteRed.style.left = self.posX + 'px'
-            console.log(self.spriteRed)
             canvas.appendChild(self.spriteRed)
         }, 10000)
     }

@@ -39,7 +39,7 @@ function KingGame() {
         this.title.style.display = 'block'
         game.music.gamePlayMusic.play ()
         game.music.gamePlayMusic.loop = true
-        game.music.gamePlayMusic.volume = 0.02
+        game.music.gamePlayMusic.volume = 0.1
         this.mapKeys()
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)
@@ -50,21 +50,29 @@ function KingGame() {
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
             case 'up':
-                this.monster.posY -= 50
+                if (this.monster.posY > 60){
+                this.monster.posY -= 40
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
+                }
             case 'down':
-                this.monster.posY += 50
+                if (this.monster.posY < 440) {
+                this.monster.posY += 40
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
+                }
             case 'left':
-                this.monster.posX -= 50
+                if (this.monster.posX > 60) {
+                this.monster.posX -= 40
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
+                }
             case 'right':
-                this.monster.posX += 50
+                if (this.monster.posX < 440) {
+                this.monster.posX += 40
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
+                }
         }
     }
 
@@ -104,7 +112,6 @@ function KingGame() {
 
     this.mapKeys = function() {
         document.addEventListener('keydown', function(e) {
-            console.log(e.key)
             if (e.key === 'ArrowDown' || e.key === 's') {
                 self.hero.moveDown()
             }
@@ -127,7 +134,7 @@ function KingGame() {
     this.gameOverAnimation = function () {
         game.music.gamePlayMusic.pause()
         game.music.gameOverMusic.play()
-        let pos = -700
+        let pos = -1000
         self.gameOver.style.display = 'block'
         this.gameOverInterval = setInterval(function() {
             if (pos < 168) {
