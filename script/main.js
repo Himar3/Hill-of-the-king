@@ -50,21 +50,29 @@ function KingGame() {
     this.knockBackToEnemy = function() {
         switch(this.hero.direction) {
             case 'up':
-                this.monster.posY -= 50
+                if (this.monster.posY > 60){
+                this.monster.posY -= 40
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
+                }
             case 'down':
-                this.monster.posY += 50
+                if (this.monster.posY < 440) {
+                this.monster.posY += 40
                 this.monster.sprite.style.top = this.monster.posY + 'px'
                 break
+                }
             case 'left':
-                this.monster.posX -= 50
+                if (this.monster.posX > 60) {
+                this.monster.posX -= 40
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
+                }
             case 'right':
-                this.monster.posX += 50
+                if (this.monster.posX < 440) {
+                this.monster.posX += 40
                 this.monster.sprite.style.left = this.monster.posX + 'px'
                 break
+                }
         }
     }
 

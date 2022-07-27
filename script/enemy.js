@@ -3,12 +3,11 @@ function Enemy() {
     this.sprite
     this.posX = 450 
     this.posY = 220
-    this.strength = 20
+    this.strength = 30
     this.life = 100
     this.direction = 'down'
     this.die = false
     this.autoTrackingInterval = null
-    this.contadorEspera
     this.randomMovementInterval
     
 
@@ -45,8 +44,8 @@ function Enemy() {
     this.generateBossEnemy = function(canvas) {
         this.die = false
         let waitSpawn2 = setTimeout(function() {
-            self.life = 130
-            self.strength = 25
+            self.life = 140
+            self.strength = 40
             let bossEnemy = document.createElement('div')
             bossEnemy.setAttribute('id', 'bossEnemy')
             self.posX = 430

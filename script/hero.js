@@ -54,40 +54,15 @@ function Hero() {
             this.levelUpAnimation()
             this.level += 1
             this.experience = 0
-            this.growByLevel()
+            this.strength += 5
+            this.defense += 2
+            this.life = 100
             this.lvl.innerText = this.level
             this.atkStat.innerText = this.strength
             this.def.innerText = this.defense
         }
     }
 
-    this.growByLevel = function() {
-        if (this.level === 2) {
-            this.strength += 5
-            this.defense += 2
-            this.life = 100
-        }
-        if (this.level === 3) {
-            this.strength += 5
-            this.defense += 2
-            this.life = 100
-        }
-        if (this.level === 4) {
-            this.strength += 5
-            this.defense += 2
-            this.life = 100
-        }
-        if (this.level === 5) {
-            this.strength += 5
-            this.defense += 2
-            this.life = 100
-        }
-        if (this.level === 6) {
-            this.strength += 5
-            this.defense += 2
-            this.life = 100
-        }
-    }
 
     this.moveDown = function() {
         this.direction = 'down'
