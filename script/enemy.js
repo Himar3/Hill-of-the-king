@@ -124,28 +124,28 @@ function Enemy() {
                 if (hero.posY > 20) {
                     hero.posY -= 50
                     hero.sprite.style.top = hero.posY + 'px'
-                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_down_72.gif)"
+                    hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_hit_down_72.gif)"
                 }
             }
             if (this.direction === 'down') {
                 if (hero.posY < 440) {
                     hero.posY += 50
                     hero.sprite.style.top = hero.posY + 'px'
-                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_up_72.gif)"
+                    hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_hit_up_72.gif)"
                 }
             }
             if (this.direction === 'left') {
                 if (hero.posX > 20) {
                     hero.posX -= 50
                     hero.sprite.style.left = hero.posX + 'px'
-                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_right_72.gif)"
+                    hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_hit_right_72.gif)"
                 }
             }
             if (this.direction === 'right') {
                 if (hero.posX < 40) {
                     hero.posX += 50
                     hero.sprite.style.left = hero.posX + 'px'
-                    hero.sprite.style.backgroundImage = "url(../assets/images/hero_iddle/hero_hit_left_72.gif)"
+                    hero.sprite.style.backgroundImage = "url(assets/images/hero_iddle/hero_hit_left_72.gif)"
                 }
             }
             hero.dieAnimation()    
