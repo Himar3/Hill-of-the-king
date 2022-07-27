@@ -39,7 +39,7 @@ function KingGame() {
         this.title.style.display = 'block'
         game.music.gamePlayMusic.play ()
         game.music.gamePlayMusic.loop = true
-        game.music.gamePlayMusic.volume = 0.02
+        game.music.gamePlayMusic.volume = 0.1
         this.mapKeys()
         this.hero.generateHero(this.canvas) 
         this.monster.generateEnemy(this.canvas)

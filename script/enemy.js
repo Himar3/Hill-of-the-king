@@ -95,7 +95,7 @@ function Enemy() {
             if (!self.die && self.collideHero(hero)) {
                 self.damageToHero(hero)
             }
-        }, 500);
+        }, 300);
         
     }
 
