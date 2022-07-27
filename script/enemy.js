@@ -1,4 +1,5 @@
 function Enemy() {
+    //Variables
     let self = this
     this.sprite
     this.posX = 450 
@@ -10,7 +11,7 @@ function Enemy() {
     this.autoTrackingInterval = null
     this.randomMovementInterval
     
-
+    //Métodos
     this.generateEnemy = function(canvas) {
         let enemy = document.createElement('div')
         enemy.setAttribute('id', 'enemy')
@@ -20,11 +21,7 @@ function Enemy() {
         this.sprite = document.getElementById('enemy')
     }
     
-    this.isDead = function() {
-        this.life >= 1 ? this.die = false : this.die = true
-
-    }
-
+    
     this.generateRandomEnemy = function(canvas) {
         this.die = false
         let waitSpawn = setTimeout(function() {
@@ -40,7 +37,7 @@ function Enemy() {
             self.autoTracking(hero)
         }, 750)    
     }
-
+    
     this.generateBossEnemy = function(canvas) {
         this.die = false
         let waitSpawn2 = setTimeout(function() {
@@ -54,14 +51,17 @@ function Enemy() {
             bossEnemy.style.left = self.posX + 'px'
             canvas.appendChild(bossEnemy)
             self.sprite = document.getElementById('bossEnemy')
-            self.sprite.style.backgroundImage = 'url(assets/images/enemys/yoda.gif' 
+            self.sprite.style.backgroundImage = 'url(assets/images/enemys/yoda.gif)' 
             game.music.bossSpawn.play()
             self.autoTracking(hero)
         }, 750)   
-    }
-
+    }   
     
+    this.isDead = function() {
+        this.life >= 1 ? this.die = false : this.die = true
 
+    }
+    
     this.autoTracking = function(hero) {
         this.autoTrackingInterval = setInterval(function() {  
             if (hero.die === true) {

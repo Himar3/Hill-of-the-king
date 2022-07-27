@@ -122,37 +122,37 @@ function Hero() {
 
     this.lifeHud = function() {
         if (this.life > 90) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life100.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life100.png)"
         }
         else if (this.life > 80) {
-        this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life90.png)"
+        this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life90.png)"
         }
         else if (this.life > 70) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life80.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life80.png)"
         }
         else if (this.life > 60) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life70.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life70.png)"
         }
         else if (this.life > 50) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life60.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life60.png)"
         }
         else if (this.life > 40) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life50.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life50.png)"
         }
         else if (this.life > 30) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life40.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life40.png)"
         }
         else if (this.life > 20) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life30.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life30.png)"
         }
         else if (this.life > 10) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life20.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life20.png)"
         }
         else if (this.life > 0) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life10.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life10.png)"
         }
         else if (this.life <= 0) {
-            this.lifeAnimation.style.backgroundImage = "url(../assets/images/hud/life0.png)"
+            this.lifeAnimation.style.backgroundImage = "url(assets/images/hud/life0.png)"
         }
     }
 
