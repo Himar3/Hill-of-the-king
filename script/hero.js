@@ -56,6 +56,7 @@ function Hero() {
             this.strength += 5
             this.defense += 2
             this.life = 100
+            this.lifeHud()
             this.lvl.innerText = this.level
             this.atkStat.innerText = this.strength
             this.def.innerText = this.defense

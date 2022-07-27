@@ -31,8 +31,8 @@ function Enemy() {
             self.life = 100
             let randomEnemy = document.createElement('div')
             randomEnemy.setAttribute('id', 'enemy')
-            self.posX = Math.floor(Math.random() * 50 + 400)
-            self.posY = Math.floor(Math.random() * 50 + 400)
+            self.posX = Math.floor(Math.random() * 450)
+            self.posY = 450
             randomEnemy.style.top = self.posY + 'px'
             randomEnemy.style.left = self.posX + 'px'
             canvas.appendChild(randomEnemy)
@@ -48,7 +48,7 @@ function Enemy() {
             self.strength = 40
             let bossEnemy = document.createElement('div')
             bossEnemy.setAttribute('id', 'bossEnemy')
-            self.posX = 430
+            self.posX = Math.floor(Math.random() * 450)
             self.posY = 0
             bossEnemy.style.top = self.posY + 'px'
             bossEnemy.style.left = self.posX + 'px'
@@ -72,22 +72,22 @@ function Enemy() {
             if (!self.die && !self.collideHero(hero)) {
                 if (self.posX <= hero.posX) {
                     self.direction = 'right'
-                    self.posX += 9
+                    self.posX += 10
                     self.sprite.style.left = self.posX + 'px'
                 }
                 if (self.posX >= hero.posX + 40) {
                     self.direction = 'left'
-                    self.posX -= 9
+                    self.posX -= 10
                     self.sprite.style.left = self.posX + 'px'
                 }
                 if (self.posY + 30 <= hero.posY) {
                     self.direction = 'down'
-                    self.posY += 9
+                    self.posY += 10
                     self.sprite.style.top = self.posY + 'px'
                 }
                 if (self.posY >= hero.posY + 40) {
                     self.direction = 'up'
-                    self.posY -= 9
+                    self.posY -= 10
                     self.sprite.style.top = self.posY + 'px'
                 }
                 }
