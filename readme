@@ -1,1 +1,15 @@
-video game
+Hill if the King   (proyecto1)
+
+Genero ARPG.
+
+Hill of the King es un video-juego creado puramente con html, css y javascript.
+EL objetivo es sobrevivir el mayor tiempo posible matando monstruos mientras aumentas tu puntuación.
+
+Se desarrolla en un entorno cerrado (canvas) en el que nos podemos desplazar libremente con el heroe, mientras escapamos, atacamos a los enemigos y jefes y recogemos 
+pociones para curar nuestra maltrecha vida.
+
+Ofrece mecánicas de movimiento, ataque, subida de nivel y otras futuras que esperamos poder implementar.
+
+Esperamos que lo disfrutes tanto como nosotros al crearlo:
+
+https://himar3.github.io/Hill-of-the-king/
